@@ -176,8 +176,9 @@
             <nav id="nav">
     <ul class="links">
         <li class="nav-home "><a href="../index.html">Home</a></li>
-        <li class="nav-research "><a href="../tag/research/index.html">Research</a></li>
+        <li class="nav-research "><a href="http://localhost:2368/tag/research/">Research</a></li>
         <li class="nav-projects "><a href="../portal/index.html">Projects</a></li>
+        <li class="nav-articles "><a href="../tag/articles/index.html">Articles</a></li>
         <li class="nav-author "><a href="../author/ghost/index.html">Author</a></li>
         <li class="nav-about "><a href="http://localhost:2368/about/">About</a></li>
     </ul>
@@ -189,20 +190,19 @@
 </nav>
 
 
-        
-
-<main id="main">
+            <main id="main">
 
     <section class="post">
 
         <header class="major">
             <span class="date">December 2, 2021</span>
             <h1>Start here for a quick overview of everything you need to know</h1>
-                <p class="content">We&#x27;ve crammed the most important information to help you get started with Ghost into this one post. It&#x27;s your cheat-sheet to get started, and your shortcut to advanced features.</p>
+            <p class="content">We&#x27;ve crammed the most important information to help you get started with Ghost into this one post. It&#x27;s your cheat-sheet to get started, and your shortcut to advanced features.</p>
         </header>
 
         <figure class="image main">
-            <img src="https://static.ghost.org/v4.0.0/images/welcome-to-ghost.png" alt="Start here for a quick overview of everything you need to know" />
+            <img src="https://static.ghost.org/v4.0.0/images/welcome-to-ghost.png"
+                alt="Start here for a quick overview of everything you need to know" />
         </figure>
 
         <div class="content">
@@ -225,22 +225,45 @@
 
         </footer>
 
+
+        <section class="post-full-comments">
+            <div id="disqus_thread"></div>
+            <script>
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                
+                var disqus_config = function () {
+                this.page.url = "https://sakunaharinda.github.io/myPersonalBlog/";  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = "ghost-61a908cb9bde393d620069f6"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                
+                (function () { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://the-passionate-scholar.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered
+                    by Disqus.</a></noscript>
+        </section>
+
     </section>
 
-</main>
+    </main>
 
 
-<script>
-    var images = document.querySelectorAll('.kg-gallery-image img');
-    images.forEach(function (image) {
-        var container = image.closest('.kg-gallery-image');
-        var width = image.attributes.width.value;
-        var height = image.attributes.height.value;
-        var ratio = width / height;
-        container.style.flex = ratio + ' 1 0%';
-    })
-</script>
-
+    <script>
+        var images = document.querySelectorAll('.kg-gallery-image img');
+        images.forEach(function (image) {
+            var container = image.closest('.kg-gallery-image');
+            var width = image.attributes.width.value;
+            var height = image.attributes.height.value;
+            var ratio = width / height;
+            container.style.flex = ratio + ' 1 0%';
+        })
+    </script>
 
         <div id="copyright">
     <ul>
