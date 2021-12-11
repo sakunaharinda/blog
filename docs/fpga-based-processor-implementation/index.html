@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>FPGA Based Processor Implementation</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/main/css/main.css%3Fv=631ad5e040.css" />
+    <noscript><link rel="stylesheet" href="../assets/main/css/noscript.css%3Fv=631ad5e040.css" /></noscript>
+
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="The Seeker" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="FPGA Based Processor Implementation" />
+    <meta property="og:description" content="In this post, I am going to talk about one of my main and very interesting project done in the university. As the title suggests, it is FPGA based processor implementation done to downsample an image. So let&#x27;s dive in. IntroductionThe goal of this project is to design a microprocessor" />
+    <meta property="og:url" content="http://localhost:2368/fpga-based-processor-implementation/" />
+    <meta property="og:image" content="http://localhost:2368/content/images/2021/12/photo-1597862624292-45748390b00e.jpg" />
+    <meta property="article:published_time" content="2021-12-11T18:46:12.000Z" />
+    <meta property="article:modified_time" content="2021-12-11T19:27:41.000Z" />
+    <meta property="article:tag" content="Projects" />
+    
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FPGA Based Processor Implementation" />
+    <meta name="twitter:description" content="In this post, I am going to talk about one of my main and very interesting project done in the university. As the title suggests, it is FPGA based processor implementation done to downsample an image. So let&#x27;s dive in. IntroductionThe goal of this project is to design a microprocessor" />
+    <meta name="twitter:url" content="http://localhost:2368/fpga-based-processor-implementation/" />
+    <meta name="twitter:image" content="http://localhost:2368/content/images/2021/12/photo-1597862624292-45748390b00e.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Sakuna Jayasundara" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Projects" />
+    <meta name="twitter:site" content="@ghost" />
+    <meta property="og:image:width" content="1000" />
+    <meta property="og:image:height" content="667" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "The Seeker",
+        "url": "http://localhost:2368/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/favicon.ico",
+            "width": 48,
+            "height": 48
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Sakuna Jayasundara",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/content/images/2021/12/IMG_20200411_014007_641.jpg",
+            "width": 596,
+            "height": 596
+        },
+        "url": "http://localhost:2368/author/sakuna/",
+        "sameAs": []
+    },
+    "headline": "FPGA Based Processor Implementation",
+    "url": "http://localhost:2368/fpga-based-processor-implementation/",
+    "datePublished": "2021-12-11T18:46:12.000Z",
+    "dateModified": "2021-12-11T19:27:41.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://localhost:2368/content/images/2021/12/photo-1597862624292-45748390b00e.jpg",
+        "width": 1000,
+        "height": 667
+    },
+    "keywords": "Projects",
+    "description": "In this post, I am going to talk about one of my main and very interesting\nproject done in the university. As the title suggests, it is FPGA based\nprocessor implementation done to downsample an image. So let&#x27;s dive in.\n\nIntroduction\nThe goal of this project is to design a microprocessor for a specified task and\nthe Central Processing Unit (CPU) structure, while simulating it using a\nHardware Description Language (HDL) such as Verilog and to implement the given\ntask using a programmable logic dev",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:2368/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 4.25" />
+    <link rel="alternate" type="application/rss+xml" title="The Seeker" href="../rss/index.html" />
+    <script defer src="https://unpkg.com/@tryghost/portal@~1.12.0/umd/portal.min.js" data-ghost="http://localhost:2368/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script async src="../public/cards.min.js%3Fv=631ad5e040"></script><style>:root {--ghost-accent-color: #000000;}</style>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=631ad5e040.css">
+
+    <style>#wrapper>.bg {background-image: url(../assets/images/overlay.png%3Fv=631ad5e040),linear-gradient(0deg, rgba(0,0,0,0.1), rgba(0,0,0,0.1)),url("../content/images/2021/12/andreas-selter-e4yK8QQlZa0-unsplash-1.jpg") }</style>
+
+</head>
+<body class="is-preload post-template tag-projects">
+
+    <div id="wrapper" >
+
+
+        <header id="header">
+                <a href="../index.html" class="logo">The Seeker</a>
+        </header>
+
+            <nav id="nav">
+    <ul class="links">
+        <li class="nav-home "><a href="../index.html">Home</a></li>
+        <li class="nav-research "><a href="../tag/research/index.html">Research</a></li>
+        <li class="nav-projects "><a href="http://localhost:2368/portal/">Projects</a></li>
+        <li class="nav-articles "><a href="../tag/articles/index.html">Articles</a></li>
+        <li class="nav-author "><a href="../author/sakuna/index.html">Author</a></li>
+    </ul>
+    <ul class="icons">
+        <li><a href="https://twitter.com/ghost" class="icon fa-twitter" title="Twitter"><span class="label">Twitter</span></a></li>
+        <li><a href="https://www.linkedin.com/in/sakuna-harinda/" class="icon fa-linkedin" title="LinkedIn"><span class="label">LinkedIn</span></a></li>
+        <li><a href="https://feedly.com/i/subscription/feed/http://localhost:2368/rss/" class="icon fa-rss" target="_blank" rel="noopener"><span class="label" title="RSS">RSS</span></a></li>
+    </ul>
+</nav>
+
+
+            <main id="main">
+
+    <section class="post">
+
+        <header class="major">
+            <span class="date">December 11, 2021</span>
+            <h1>FPGA Based Processor Implementation</h1>
+        </header>
+
+        <figure class="image main">
+            <img src="../content/images/2021/12/photo-1597862624292-45748390b00e.jpg"
+                alt="FPGA Based Processor Implementation" />
+        </figure>
+
+        <div class="content">
+            <p>In this post, I am going to talk about one of my main and very interesting project done in the university. As the title suggests, it is FPGA based processor implementation done to downsample an image. So let's dive in.</p><h2 id="introduction">Introduction</h2><p>The goal of this project is to design a microprocessor for a specified task and the Central Processing Unit (CPU) structure, while simulating it using a Hardware Description Language (HDL) such as Verilog and to implement the given task using a programmable logic device, preferably a Field Programmable Gate Arrays (FPGA). This report contains documents regarding the structure of the microprocessor and CPU design, the Verilog codes used to configure it and finally the physical configuration of the hardware.</p><ul><li><strong>Central Processing Unit</strong><br>Central Processing Unit (CPU) widely considered as the brain of any computer device, is the place where all the instructions are carried out by performing logical operations, arithmetic operations, control operations and input/output operations. Hence, as explained above, CPU contains of two main components, the processor and the control unit while having a memory component and I/O components connecting to the CPU separately.</li><li><strong>Microprocessor </strong><br>Microprocessor can be considered as the most important part when it comes to a CPU. It is responsible for processing a unique set of instructions and processes. Its design is responsible to carry out logical and arithmetic operations. Microprocessors consists of many integrated circuits which holds thousands of components such as transistors etc.<br><br>Microprocessors are very important figures when it comes to modern computer designs and applications. With the high usage of microprocessors in the current market, various types of task- oriented microprocessors are available today. In this project we plan to design and implement a specific task-oriented microprocessor with maximum optimization.<br></li></ul><p>Project contains 3 main parts. </p><ul><li><strong>Sending the serial encoded pixel values to the FPGA and storing process</strong><br>Image is transmitted to the FPGA using UART (Universal Asynchronous Receiver/Transmitter) with 50MHz clock frequency. Image is sent by byte by byte serially using 4 states. They are START, IDLE, DATA, STOP. We built a python kernel using several libraries such as pyserial to communicate with RS232 port of the FPGA via the serial cable. After the image is sent to the FPGA we are notified by a LED. Then the process is triggered by a flag which is sent from the data memory module we built.<br><br>Since there were some errors when it comes to saving bits and storing them, we chose not to use the UART module and use the in-memory module for the data transfer process.<br><br>After the process is finished state of the processor is changed to the transmit state from process state. Then the UART transmitter is activated and it sends the processed down sampled image back to the computer for comparing and displaying purposes.<br><br>We can use any size of image in the architecture we’re proposing, and pixel values will then be saved into the primary memory in the processor architecture. For the calculations and processing tasks in the latter sections, the values saved in these memory locations will be used.</li><li><strong>Down-sampling process</strong><br>With the values stored in the primary memory of the CPU, we begin our processing part by filtering the image using a gaussian kernel. The filtered image values will be saved in the remaining memory slots of the main memory of the CPU. Then we begin our down-sampling process and according to the instructions that have been pre-defined by us, the processor will carry them out and finally save the down-sampled image in the main memory, overlapping the original image at the first place. The down-sampling process will be given in order to the microprocessor by us according to an Instruction Set Architecture (ISA) that is being developed uniquely to our microprocessor. Each instruction in the ISA will contain few micro instructions and they will be fetched accordingly form the Instruction Register according to the algorithm we’ve developed. The ISA and each registers task will be discussed later in this report.</li><li><strong>Transmitting the result back to the user</strong><br>The down sampled image will be sent back to the user in a similar manner used in transmitting the image. </li></ul><h2 id="instruction-set-architecture">Instruction Set Architecture </h2><p>As explained above, the main task of this processor is to down-sample any given image by a factor of two. In this section, we’ll look at the architecture we have implemented to acquire this task and the use of all the special case and general case registers.</p><ul><li><strong>PC - </strong>A 10-bit Program Counter which keeps the main memory address of the next instruction to be fetched.</li><li><strong>IR - </strong>A 32-bit Instruction Register which holds the Instructions fetched.</li><li><strong>MAR - </strong>A 32-bit register</li><li><strong>AC - </strong>A 32-bit Accumulator which saves the intermediate values after a   computation and the pixels values to be written/ read from data memory</li><li><strong>SOR - </strong>A 32-bit register which points the source location of the pixel</li><li><strong>DSTR - </strong>A 32-bit register which points the destination location of the pixel.</li><li><strong>COUN - </strong>A 32-bit register which is used for incrementing purposes.</li><li><strong>R1 - </strong>A 32-bit register used for general purpose and to store constant data </li><li><strong>R2 - </strong>A 32-bit register used for general purpose and to store constant data</li><li><strong>R3 - </strong>A 32-bit register used for general purpose and to store constant data</li></ul><h3 id="datapath">Datapath<br></h3><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/12/Screenshot-2021-12-12-at-00.22.07.png" class="kg-image" alt loading="lazy" width="902" height="1112" srcset="../content/images/size/w600/2021/12/Screenshot-2021-12-12-at-00.22.07.png 600w, ../content/images/2021/12/Screenshot-2021-12-12-at-00.22.07.png 902w" sizes="(min-width: 720px) 720px"><figcaption>Datapath of the Processor</figcaption></figure><h3 id="process-cycle">Process Cycle</h3><p>The processing of the written algorithm happens in 3 stages which are fetch, decode and execute. In this section we’ll take a brief look at these 3 stages and the operation of all these stages.</p><ul><li><strong>Fetch Instructions</strong><br>FETCH cycle consists of 2 stages with FETCH1 being set as the next state at the beginning.<br>FETCH1: Instruction Read <br>FETCH2: IR &lt;- M, PC &lt;- PC+1</li><li><strong>Decode Instructions</strong><br>After the instruction has been fetched, processor needs to identify which instruction has been fetched to invoke the correct execute cycle. During the decode cycle, processor identifies the execution cycle by the opcode of the instruction and passes down to the execute cycle to carry out the rest of the operation.</li><li><strong>Execute Instruction</strong><br>Execute instructions are the main types of instructions that carry out the major parts of the processing. The execute instructions can be classified according to the tasks they perform.</li></ul><p>You can get a clear understanding about the instructions and their functionalities in the <a href="https://github.com/ShechemKS/DownSampling_Processor/blob/master/Pocessor%20Design%20Report.pdf">project report</a>. </p><p>Finally, the state diagram of the complete process looked like this.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/12/Screenshot-2021-12-12-at-00.32.41.png" class="kg-image" alt loading="lazy" width="1766" height="610" srcset="../content/images/size/w600/2021/12/Screenshot-2021-12-12-at-00.32.41.png 600w, ../content/images/size/w1000/2021/12/Screenshot-2021-12-12-at-00.32.41.png 1000w, ../content/images/size/w1600/2021/12/Screenshot-2021-12-12-at-00.32.41.png 1600w, ../content/images/2021/12/Screenshot-2021-12-12-at-00.32.41.png 1766w" sizes="(min-width: 720px) 720px"><figcaption>State Diagram of the Processor</figcaption></figure><h2 id="algorithm">Algorithm</h2><p>The algorithm for the image down-sampling process consists of two main sections which are the filtering of the image and the down-sampling itself. First, the filtering algorithm is applied to the whole image by selecting 3x1 and 1x3 pixel sets and then the down-sampling algorithm is applied. More details about each of these algorithms will be explained below.</p><h3 id="filtering-algorithm">Filtering Algorithm</h3><p>Filtering is done by using a gaussian kernel. Instead of using a 3x3, 2-D gaussian kernel, we opt kernel separability where 2 kernels that are 1x3 and 3x1 run through the image as shown below.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/12/Screenshot-2021-12-12-at-00.35.41.png" class="kg-image" alt loading="lazy" width="1090" height="200" srcset="../content/images/size/w600/2021/12/Screenshot-2021-12-12-at-00.35.41.png 600w, ../content/images/size/w1000/2021/12/Screenshot-2021-12-12-at-00.35.41.png 1000w, ../content/images/2021/12/Screenshot-2021-12-12-at-00.35.41.png 1090w" sizes="(min-width: 720px) 720px"><figcaption>Filter Kernels</figcaption></figure><p>The main reason for the above selection was to make the algorithm more simple and easy to understand. At first vertical filtering was carried out and horizontal filtering was carried out on resultant image after the vertical filtering. Finally after the two filtrations, pixel values of the image were saved in the main memory. The weighted average was calculated by multiplying the pixel value and kernel value and adding the three likewise values together and dividing it by the weighted average of the kernel, which is 4 in both. The below illustration may give you a better understanding.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/12/Screenshot-2021-12-12-at-00.37.11.png" class="kg-image" alt loading="lazy" width="1242" height="482" srcset="../content/images/size/w600/2021/12/Screenshot-2021-12-12-at-00.37.11.png 600w, ../content/images/size/w1000/2021/12/Screenshot-2021-12-12-at-00.37.11.png 1000w, ../content/images/2021/12/Screenshot-2021-12-12-at-00.37.11.png 1242w" sizes="(min-width: 720px) 720px"><figcaption>Applying the filter</figcaption></figure><p>After applying the vertical kernel shown below to the three green pixels in the image, the centre pixel value (red one) will get updated.</p><h3 id="downsampling-algorithm">Downsampling Algorithm</h3><p>After the filtering algorithm is applied to the image, we then apply the down sampling algorithm to the filtered image. The concept of the down sampling algorithm is to select each alternative pixel value. It is also done in two steps by selecting an alternative pixel values horizontally and skipping an entire row vertically. The below illustration will give you a better idea about this process.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/12/Screenshot-2021-12-12-at-00.39.35.png" class="kg-image" alt loading="lazy" width="988" height="456" srcset="../content/images/size/w600/2021/12/Screenshot-2021-12-12-at-00.39.35.png 600w, ../content/images/2021/12/Screenshot-2021-12-12-at-00.39.35.png 988w" sizes="(min-width: 720px) 720px"><figcaption>Pixel Selection</figcaption></figure><p>Which will give us a resultant image as follows.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/12/Screenshot-2021-12-12-at-00.40.00.png" class="kg-image" alt loading="lazy" width="514" height="258"><figcaption>Resultant downsampled image</figcaption></figure><p>After coding the above algorithms in RTL using many modules created along the way such as registers, ALU (Arithmatic and Logic Units), Controller etc., RTL view of the processor can be shown as follows.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/12/Screenshot-2021-12-12-at-00.44.15.png" class="kg-image" alt loading="lazy" width="1690" height="1128" srcset="../content/images/size/w600/2021/12/Screenshot-2021-12-12-at-00.44.15.png 600w, ../content/images/size/w1000/2021/12/Screenshot-2021-12-12-at-00.44.15.png 1000w, ../content/images/size/w1600/2021/12/Screenshot-2021-12-12-at-00.44.15.png 1600w, ../content/images/2021/12/Screenshot-2021-12-12-at-00.44.15.png 1690w" sizes="(min-width: 720px) 720px"><figcaption>RTL view of the processor</figcaption></figure><h2 id="error-detection">Error Detection</h2><p>In order to check how good our algorithm, we need to compare it with a reference result. Hence, for this task we used an opencv down sampled image from python. With the resultant image we get from python, we compared our resultant image from the processor and calculated the error.</p><p>Here, we have shown two images along with their opencv down sampled version and our processor down sampled version and the error between two images. Note that second image consists of many textures.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/12/Screenshot-2021-12-12-at-00.46.41.png" class="kg-image" alt loading="lazy" width="1236" height="942" srcset="../content/images/size/w600/2021/12/Screenshot-2021-12-12-at-00.46.41.png 600w, ../content/images/size/w1000/2021/12/Screenshot-2021-12-12-at-00.46.41.png 1000w, ../content/images/2021/12/Screenshot-2021-12-12-at-00.46.41.png 1236w" sizes="(min-width: 720px) 720px"><figcaption>Result comparison (Low textured)</figcaption></figure><p>Error with the opencv down sampled image gives us 5% value. The main reason for this is the values saved on the memory of the FPGA was not ideal. Also the algorithm used by opencv is way more advanced than the one we used for out algorithm. Also numerical errors like floating points can affect this as well.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/12/Screenshot-2021-12-12-at-00.48.16.png" class="kg-image" alt loading="lazy" width="1204" height="1014" srcset="../content/images/size/w600/2021/12/Screenshot-2021-12-12-at-00.48.16.png 600w, ../content/images/size/w1000/2021/12/Screenshot-2021-12-12-at-00.48.16.png 1000w, ../content/images/2021/12/Screenshot-2021-12-12-at-00.48.16.png 1204w" sizes="(min-width: 720px) 720px"><figcaption>Result comparison (High textured)</figcaption></figure><p>So, as you can our processor is capable of downsample an image by keeping the error level in a very low value. The difference between our downsampled image using machine instruction and the OpenCV based downsampled image is negligible. </p><p>This project was a huge success and this can be considered as one of the most interesting projects done as an undergraduate. If you want to know more about the project you can visit this <a href="https://github.com/ShechemKS/DownSampling_Processor">link</a> and look at the implementation. </p><p><br><br><br> </p>
+        </div>
+
+
+        <footer class="post-footer">
+
+            <div class="authors">
+                <a class="author-box" href="../author/sakuna/index.html">
+                    <img class="author-profile-image" src="../content/images/2021/12/IMG_20200411_014007_641.jpg" alt="Sakuna Jayasundara" />
+                    <section class="author-box-content">
+                        <div class="author-box-label">Author</div>
+                        <h5 class="author-box-name">Sakuna Jayasundara</h5>
+                        <p>Machine vision and deep learning enthusiast.</p>
+                    </section>
+                </a>
+            </div>
+
+        </footer>
+
+
+        <section class="post-full-comments">
+            <div id="disqus_thread"></div>
+            <script>
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                
+                var disqus_config = function () {
+                this.page.url = "https://sakunaharinda.github.io/myPersonalBlog/";  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = "ghost-61b4ec71f714c603360260eb"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                
+                (function () { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://the-passionate-scholar.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered
+                    by Disqus.</a></noscript>
+        </section>
+
+    </section>
+
+    </main>
+
+
+    <script>
+        var images = document.querySelectorAll('.kg-gallery-image img');
+        images.forEach(function (image) {
+            var container = image.closest('.kg-gallery-image');
+            var width = image.attributes.width.value;
+            var height = image.attributes.height.value;
+            var ratio = width / height;
+            container.style.flex = ratio + ' 1 0%';
+        })
+    </script>
+
+        <div id="copyright">
+    <ul>
+        <li>&copy; The Seeker</li>
+        <li>Design by <a href="https://html5up.net">HTML5 UP</a></li>
+        <li>Published with <a href="https://ghost.org">Ghost</a></li>
+    </ul>
+</div>
+    </div>
+
+
+    <script src="../assets/main/js/jquery.min.js%3Fv=631ad5e040"></script>
+    <script src="../assets/main/js/jquery.scrollex.min.js%3Fv=631ad5e040"></script>
+    <script src="../assets/main/js/jquery.scrolly.min.js%3Fv=631ad5e040"></script>
+    <script src="../assets/main/js/browser.min.js%3Fv=631ad5e040"></script>
+    <script src="../assets/main/js/breakpoints.min.js%3Fv=631ad5e040"></script>
+    <script src="../assets/main/js/util.js%3Fv=631ad5e040"></script>
+    <script src="../assets/main/js/main.js%3Fv=631ad5e040"></script>
+
+    
+
+</body>
+</html>

@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <title>FPGA Based Processor Implementation</title>
+
+    <link rel="canonical" href="../index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="The Seeker" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="FPGA Based Processor Implementation" />
+    <meta property="og:description" content="In this post, I am going to talk about one of my main and very interesting project done in the university. As the title suggests, it is FPGA based processor implementation done to downsample an image. So let&#x27;s dive in. IntroductionThe goal of this project is to design a microprocessor" />
+    <meta property="og:url" content="http://localhost:2368/fpga-based-processor-implementation/" />
+    <meta property="og:image" content="http://localhost:2368/content/images/2021/12/photo-1597862624292-45748390b00e.jpg" />
+    <meta property="article:published_time" content="2021-12-11T18:46:12.000Z" />
+    <meta property="article:modified_time" content="2021-12-11T19:27:41.000Z" />
+    <meta property="article:tag" content="Projects" />
+    
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FPGA Based Processor Implementation" />
+    <meta name="twitter:description" content="In this post, I am going to talk about one of my main and very interesting project done in the university. As the title suggests, it is FPGA based processor implementation done to downsample an image. So let&#x27;s dive in. IntroductionThe goal of this project is to design a microprocessor" />
+    <meta name="twitter:url" content="http://localhost:2368/fpga-based-processor-implementation/" />
+    <meta name="twitter:image" content="http://localhost:2368/content/images/2021/12/photo-1597862624292-45748390b00e.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Sakuna Jayasundara" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Projects" />
+    <meta name="twitter:site" content="@ghost" />
+    <meta property="og:image:width" content="1000" />
+    <meta property="og:image:height" content="667" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "The Seeker",
+        "url": "http://localhost:2368/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/favicon.ico",
+            "width": 48,
+            "height": 48
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Sakuna Jayasundara",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/content/images/2021/12/IMG_20200411_014007_641.jpg",
+            "width": 596,
+            "height": 596
+        },
+        "url": "http://localhost:2368/author/sakuna/",
+        "sameAs": []
+    },
+    "headline": "FPGA Based Processor Implementation",
+    "url": "http://localhost:2368/fpga-based-processor-implementation/",
+    "datePublished": "2021-12-11T18:46:12.000Z",
+    "dateModified": "2021-12-11T19:27:41.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://localhost:2368/content/images/2021/12/photo-1597862624292-45748390b00e.jpg",
+        "width": 1000,
+        "height": 667
+    },
+    "keywords": "Projects",
+    "description": "In this post, I am going to talk about one of my main and very interesting\nproject done in the university. As the title suggests, it is FPGA based\nprocessor implementation done to downsample an image. So let&#x27;s dive in.\n\nIntroduction\nThe goal of this project is to design a microprocessor for a specified task and\nthe Central Processing Unit (CPU) structure, while simulating it using a\nHardware Description Language (HDL) such as Verilog and to implement the given\ntask using a programmable logic dev",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:2368/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 4.25" />
+    <link rel="alternate" type="application/rss+xml" title="The Seeker" href="../../rss/index.html" />
+
+    <style amp-custom>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 62.5%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #3a4145;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.55em;
+        font-weight: 400;
+        font-style: normal;
+        background: #fff;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dd,
+    hr,
+    pre,
+    form,
+    table,
+    video,
+    figure,
+    figcaption,
+    blockquote {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul[class],
+    ol[class] {
+        padding: 0;
+        list-style: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    input,
+    button,
+    select,
+    textarea {
+        font: inherit;
+        -webkit-appearance: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 0.9em;
+        font-weight: 700;
+    }
+
+    hr {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid currentcolor;
+        opacity: 0.1;
+    }
+
+    ::selection {
+        text-shadow: none;
+        background: #cbeafb;
+    }
+
+    mark {
+        background-color: #fdffb6;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+
+    ul li + li {
+        margin-top: 0.6em;
+    }
+
+    a {
+        color: var(--ghost-accent-color, #1292EE);
+        text-decoration-skip-ink: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        font-weight: 700;
+        color: #121212;
+        line-height: 1.4em;
+    }
+
+    h1 {
+        font-size: 3.4rem;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.7rem;
+    }
+
+    h5 {
+        font-size: 1.6rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    amp-img {
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    amp-img img {
+        object-fit: cover;
+    }
+
+    .page-header {
+        padding: 50px 5vmin 30px;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .page-header a {
+        color: #121212;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: -0.1px;
+    }
+
+    .post {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .post-header {
+        margin: 0 5vmin 5vmin;
+        text-align: center;
+    }
+
+    .post-meta {
+        margin: 1rem 0 0 0;
+        text-transform: uppercase;
+        color: #738a94;
+        font-weight: 500;
+        font-size: 1.3rem;
+    }
+
+    .post-image {
+        margin: 0 0 5vmin;
+    }
+
+    .post-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-content {
+        padding: 0 5vmin;
+    }
+
+    .post-content > * + * {
+        margin-top: 1.5em;
+    }
+
+    .post-content [id]:not(:first-child) {
+        margin: 2em 0 0;
+    }
+
+    .post-content > [id] + * {
+        margin-top: 1rem;
+    }
+
+    .post-content [id] + .kg-card,
+    .post-content blockquote + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > dl {
+        padding-left: 1.9em;
+    }
+
+    .post-content hr {
+        margin-top: 40px;
+    }
+
+    .post .post-content hr + * {
+        margin-top: 40px;
+    }
+
+    .post-content amp-img {
+        background-color: #f8f8f8;
+    }
+
+    .post-content blockquote {
+        position: relative;
+        font-style: italic;
+    }
+
+    .post-content blockquote::before {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: 0;
+        bottom: 0;
+        width: 0.3rem;
+        background: var(--ghost-accent-color, #1292EE);
+    }
+
+    .post-content :not(.kg-card):not([id]) + .kg-card {
+        margin-top: 40px;
+    }
+
+    .post-content .kg-card + :not(.kg-card) {
+        margin-top: 40px;
+    }
+
+    .kg-card figcaption {
+        padding: 1.5rem 1.5rem 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.4em;
+        opacity: 0.6;
+    }
+
+    .kg-card figcaption strong {
+        color: rgba(0,0,0,0.8);
+    }
+
+    .post-content :not(pre) code {
+        vertical-align: middle;
+        padding: 0.15em 0.4em 0.15em;
+        border: #e1eaef 1px solid;
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1em;
+        color: #15171a;
+        background: #f0f6f9;
+        border-radius: 0.25em;
+    }
+
+    .post-content > pre {
+        overflow: scroll;
+        padding: 16px 20px;
+        color: #fff;
+        background: #1F2428;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+    }
+
+    .kg-embed-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .kg-image-card img {
+        margin: auto;
+    }
+
+    .kg-gallery-card + .kg-gallery-card {
+        margin-top: 0.75em;
+    }
+
+    .kg-gallery-container {
+        position: relative;
+    }
+
+    .kg-gallery-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .kg-gallery-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .kg-gallery-row:not(:first-of-type) {
+        margin: 0.75em 0 0 0;
+    }
+
+    .kg-gallery-image:not(:first-of-type) {
+        margin: 0 0 0 0.75em;
+    }
+
+    .kg-bookmark-card,
+    .kg-bookmark-publisher {
+        position: relative;
+    }
+
+    .kg-bookmark-container,
+    .kg-bookmark-container:hover {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        color: currentColor;
+        background: rgba(255,255,255,0.6);
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        text-decoration: none;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+
+    .kg-bookmark-content {
+        flex-basis: 0;
+        flex-grow: 999;
+        padding: 20px;
+        order: 1;
+    }
+
+    .kg-bookmark-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.3em;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        max-height: 45px;
+        margin: 0.5em 0 0 0;
+        font-size: 1.4rem;
+        line-height: 1.55em;
+        overflow: hidden;
+        opacity: 0.8;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .kg-bookmark-metadata {
+        margin-top: 20px;
+    }
+
+    .kg-bookmark-metadata {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .kg-bookmark-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-metadata amp-img {
+        width: 18px;
+        height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+        margin-right: 10px;
+    }
+
+    .kg-bookmark-thumbnail {
+        display: flex;
+        flex-basis: 20rem;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .kg-bookmark-thumbnail amp-img {
+        max-height: 200px;
+    }
+
+    .kg-bookmark-author {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .kg-bookmark-publisher::before {
+        content: "•";
+        margin: 0 .5em;
+    }
+
+    .kg-toggle-card-icon {
+        display: none;
+    }
+
+    .kg-toggle-content {
+        margin-top: 0.8rem;
+    }
+
+    .kg-nft-card-container {
+        position: relative;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        text-decoration: none;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        box-shadow: 0 2px 6px -2px rgb(0 0 0 / 10%), 0 0 1px rgb(0 0 0 / 40%);
+        width: 100%;
+        max-width: 512px;
+        color: #15212A;
+        background: #fff;
+        border-radius: 5px;
+        transition: none;
+        margin: 0 auto; 
+    }
+
+    .kg-nft-metadata {
+        padding: 2.0rem;
+    }
+
+    .kg-nft-image-container {
+        position: relative;
+    }
+
+    .kg-nft-image {
+        display: flex;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .kg-nft-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .kg-nft-header h4.kg-nft-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin: 0;
+        color: #15212A;
+    }
+
+    .kg-nft-header amp-img {
+        max-width: 114px;
+        max-height: 26px;
+    }
+
+    .kg-nft-opensea-logo {
+        margin-top: 2px;
+        width: 100px;
+    }
+
+    .kg-nft-creator {
+        font-family: inherit;
+        color: #95A1AD;
+    }
+
+    .kg-nft-creator span {
+        font-weight: 500;
+        color: #15212A;
+    }
+
+    .kg-nft-card p.kg-nft-description {
+        font-size: 1.4rem;
+        line-height: 1.4em;
+        margin: 2.0rem 0 0;
+        color: #222;
+    }
+
+    .kg-button-card {
+        display: flex;
+        position: static;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kg-btn {
+        display: flex;
+        position: static;
+        align-items: center;
+        padding: 0 2.0rem;
+        height: 4.0rem;
+        line-height: 4.0rem;
+        font-size: 1.65rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .kg-btn:hover {
+        opacity: 0.85;
+    }
+
+    .kg-btn-accent {
+        background-color: var(--ghost-accent-color, #1292EE);
+        color: #fff;
+    }
+
+    .kg-width-full.kg-card-hascaption {
+        display: grid;
+        grid-template-columns: inherit;
+    }
+
+    .post-content table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .post-content th {
+        padding: 0.5em 0.8em;
+        text-align: left;
+        font-size: .75em;
+        text-transform: uppercase;
+    }
+
+    .post-content td {
+        padding: 0.4em 0.7em;
+    }
+
+    .post-content tbody tr:nth-child(2n + 1) {
+        background-color: rgba(0,0,0,0.1);
+        padding: 1px;
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td:last-child {
+        box-shadow:
+            inset 1px 0 rgba(0,0,0,0.1),
+            inset -1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:nth-child(2n + 2) td {
+        box-shadow: inset 1px 0 rgba(0,0,0,0.1);
+    }
+
+    .post-content tbody tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+
+    .page-footer {
+        padding: 60px 5vmin;
+        margin: 60px auto 0;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .page-footer h3 {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .page-footer p {
+        max-width: 500px;
+        margin: 1rem auto 1.5rem;
+        font-size: 1.7rem;
+        line-height: 1.5em;
+        color: rgba(0,0,0,0.6)
+    }
+
+    .powered {
+        display: inline-flex;
+        align-items: center;
+        margin: 30px 0 0;
+        padding: 6px 9px 6px 6px;
+        border: rgba(0,0,0,0.1) 1px solid;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: -0.2px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-weight: 500;
+        color: #222;
+        text-decoration: none;
+        background: #fff;
+        border-radius: 6px;
+    }
+
+    .powered svg {
+        height: 16px;
+        width: 16px;
+        margin: 0 6px 0 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            font-size: 1.6rem;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.15em;
+        }
+        h2 {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+        h3 {
+            font-size: 1.7rem;
+        }
+    }
+
+    :root {--ghost-accent-color: #000000;}
+    </style>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    
+
+</head>
+
+<body class="amp-template">
+    <header class="page-header">
+        <a href="../../index.html">
+                The Seeker
+        </a>
+    </header>
+
+    <main class="content" role="main">
+        <article class="post">
+
+            <header class="post-header">
+                <h1 class="post-title">FPGA Based Processor Implementation</h1>
+                <section class="post-meta">
+                    Sakuna Jayasundara -
+                    <time class="post-date" datetime="2021-12-11">11 Dec 2021</time>
+                </section>
+            </header>
+            <figure class="post-image">
+                <amp-img src="http://localhost:2368/content/images/2021/12/photo-1597862624292-45748390b00e.jpg" width="600" height="340" layout="responsive"></amp-img>
+            </figure>
+            <section class="post-content">
+
+                <p>In this post, I am going to talk about one of my main and very interesting project done in the university. As the title suggests, it is FPGA based processor implementation done to downsample an image. So let's dive in.</p><h2 id="introduction">Introduction</h2><p>The goal of this project is to design a microprocessor for a specified task and the Central Processing Unit (CPU) structure, while simulating it using a Hardware Description Language (HDL) such as Verilog and to implement the given task using a programmable logic device, preferably a Field Programmable Gate Arrays (FPGA). This report contains documents regarding the structure of the microprocessor and CPU design, the Verilog codes used to configure it and finally the physical configuration of the hardware.</p><ul><li><strong>Central Processing Unit</strong><br />Central Processing Unit (CPU) widely considered as the brain of any computer device, is the place where all the instructions are carried out by performing logical operations, arithmetic operations, control operations and input/output operations. Hence, as explained above, CPU contains of two main components, the processor and the control unit while having a memory component and I/O components connecting to the CPU separately.</li><li><strong>Microprocessor </strong><br />Microprocessor can be considered as the most important part when it comes to a CPU. It is responsible for processing a unique set of instructions and processes. Its design is responsible to carry out logical and arithmetic operations. Microprocessors consists of many integrated circuits which holds thousands of components such as transistors etc.<br /><br />Microprocessors are very important figures when it comes to modern computer designs and applications. With the high usage of microprocessors in the current market, various types of task- oriented microprocessors are available today. In this project we plan to design and implement a specific task-oriented microprocessor with maximum optimization.<br /></li></ul><p>Project contains 3 main parts. </p><ul><li><strong>Sending the serial encoded pixel values to the FPGA and storing process</strong><br />Image is transmitted to the FPGA using UART (Universal Asynchronous Receiver/Transmitter) with 50MHz clock frequency. Image is sent by byte by byte serially using 4 states. They are START, IDLE, DATA, STOP. We built a python kernel using several libraries such as pyserial to communicate with RS232 port of the FPGA via the serial cable. After the image is sent to the FPGA we are notified by a LED. Then the process is triggered by a flag which is sent from the data memory module we built.<br /><br />Since there were some errors when it comes to saving bits and storing them, we chose not to use the UART module and use the in-memory module for the data transfer process.<br /><br />After the process is finished state of the processor is changed to the transmit state from process state. Then the UART transmitter is activated and it sends the processed down sampled image back to the computer for comparing and displaying purposes.<br /><br />We can use any size of image in the architecture we’re proposing, and pixel values will then be saved into the primary memory in the processor architecture. For the calculations and processing tasks in the latter sections, the values saved in these memory locations will be used.</li><li><strong>Down-sampling process</strong><br />With the values stored in the primary memory of the CPU, we begin our processing part by filtering the image using a gaussian kernel. The filtered image values will be saved in the remaining memory slots of the main memory of the CPU. Then we begin our down-sampling process and according to the instructions that have been pre-defined by us, the processor will carry them out and finally save the down-sampled image in the main memory, overlapping the original image at the first place. The down-sampling process will be given in order to the microprocessor by us according to an Instruction Set Architecture (ISA) that is being developed uniquely to our microprocessor. Each instruction in the ISA will contain few micro instructions and they will be fetched accordingly form the Instruction Register according to the algorithm we’ve developed. The ISA and each registers task will be discussed later in this report.</li><li><strong>Transmitting the result back to the user</strong><br />The down sampled image will be sent back to the user in a similar manner used in transmitting the image. </li></ul><h2 id="instruction-set-architecture">Instruction Set Architecture </h2><p>As explained above, the main task of this processor is to down-sample any given image by a factor of two. In this section, we’ll look at the architecture we have implemented to acquire this task and the use of all the special case and general case registers.</p><ul><li><strong>PC - </strong>A 10-bit Program Counter which keeps the main memory address of the next instruction to be fetched.</li><li><strong>IR - </strong>A 32-bit Instruction Register which holds the Instructions fetched.</li><li><strong>MAR - </strong>A 32-bit register</li><li><strong>AC - </strong>A 32-bit Accumulator which saves the intermediate values after a   computation and the pixels values to be written/ read from data memory</li><li><strong>SOR - </strong>A 32-bit register which points the source location of the pixel</li><li><strong>DSTR - </strong>A 32-bit register which points the destination location of the pixel.</li><li><strong>COUN - </strong>A 32-bit register which is used for incrementing purposes.</li><li><strong>R1 - </strong>A 32-bit register used for general purpose and to store constant data </li><li><strong>R2 - </strong>A 32-bit register used for general purpose and to store constant data</li><li><strong>R3 - </strong>A 32-bit register used for general purpose and to store constant data</li></ul><h3 id="datapath">Datapath<br /></h3><figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>Datapath of the Processor</figcaption></figure><h3 id="process-cycle">Process Cycle</h3><p>The processing of the written algorithm happens in 3 stages which are fetch, decode and execute. In this section we’ll take a brief look at these 3 stages and the operation of all these stages.</p><ul><li><strong>Fetch Instructions</strong><br />FETCH cycle consists of 2 stages with FETCH1 being set as the next state at the beginning.<br />FETCH1: Instruction Read <br />FETCH2: IR &lt;- M, PC &lt;- PC+1</li><li><strong>Decode Instructions</strong><br />After the instruction has been fetched, processor needs to identify which instruction has been fetched to invoke the correct execute cycle. During the decode cycle, processor identifies the execution cycle by the opcode of the instruction and passes down to the execute cycle to carry out the rest of the operation.</li><li><strong>Execute Instruction</strong><br />Execute instructions are the main types of instructions that carry out the major parts of the processing. The execute instructions can be classified according to the tasks they perform.</li></ul><p>You can get a clear understanding about the instructions and their functionalities in the <a href="https://github.com/ShechemKS/DownSampling_Processor/blob/master/Pocessor%20Design%20Report.pdf">project report</a>. </p><p>Finally, the state diagram of the complete process looked like this.</p><figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>State Diagram of the Processor</figcaption></figure><h2 id="algorithm">Algorithm</h2><p>The algorithm for the image down-sampling process consists of two main sections which are the filtering of the image and the down-sampling itself. First, the filtering algorithm is applied to the whole image by selecting 3x1 and 1x3 pixel sets and then the down-sampling algorithm is applied. More details about each of these algorithms will be explained below.</p><h3 id="filtering-algorithm">Filtering Algorithm</h3><p>Filtering is done by using a gaussian kernel. Instead of using a 3x3, 2-D gaussian kernel, we opt kernel separability where 2 kernels that are 1x3 and 3x1 run through the image as shown below.</p><figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>Filter Kernels</figcaption></figure><p>The main reason for the above selection was to make the algorithm more simple and easy to understand. At first vertical filtering was carried out and horizontal filtering was carried out on resultant image after the vertical filtering. Finally after the two filtrations, pixel values of the image were saved in the main memory. The weighted average was calculated by multiplying the pixel value and kernel value and adding the three likewise values together and dividing it by the weighted average of the kernel, which is 4 in both. The below illustration may give you a better understanding.</p><figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>Applying the filter</figcaption></figure><p>After applying the vertical kernel shown below to the three green pixels in the image, the centre pixel value (red one) will get updated.</p><h3 id="downsampling-algorithm">Downsampling Algorithm</h3><p>After the filtering algorithm is applied to the image, we then apply the down sampling algorithm to the filtered image. The concept of the down sampling algorithm is to select each alternative pixel value. It is also done in two steps by selecting an alternative pixel values horizontally and skipping an entire row vertically. The below illustration will give you a better idea about this process.</p><figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>Pixel Selection</figcaption></figure><p>Which will give us a resultant image as follows.</p><figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>Resultant downsampled image</figcaption></figure><p>After coding the above algorithms in RTL using many modules created along the way such as registers, ALU (Arithmatic and Logic Units), Controller etc., RTL view of the processor can be shown as follows.</p><figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>RTL view of the processor</figcaption></figure><h2 id="error-detection">Error Detection</h2><p>In order to check how good our algorithm, we need to compare it with a reference result. Hence, for this task we used an opencv down sampled image from python. With the resultant image we get from python, we compared our resultant image from the processor and calculated the error.</p><p>Here, we have shown two images along with their opencv down sampled version and our processor down sampled version and the error between two images. Note that second image consists of many textures.</p><figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>Result comparison (Low textured)</figcaption></figure><p>Error with the opencv down sampled image gives us 5% value. The main reason for this is the values saved on the memory of the FPGA was not ideal. Also the algorithm used by opencv is way more advanced than the one we used for out algorithm. Also numerical errors like floating points can affect this as well.</p><figure class="kg-card kg-image-card kg-card-hascaption"><figcaption>Result comparison (High textured)</figcaption></figure><p>So, as you can our processor is capable of downsample an image by keeping the error level in a very low value. The difference between our downsampled image using machine instruction and the OpenCV based downsampled image is negligible. </p><p>This project was a huge success and this can be considered as one of the most interesting projects done as an undergraduate. If you want to know more about the project you can visit this <a href="https://github.com/ShechemKS/DownSampling_Processor">link</a> and look at the implementation. </p><p><br /><br /><br /> </p>
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="page-footer">
+        <h3>The Seeker</h3>
+            <p>Thoughts, stories and ideas.</p>
+        <p><a href="../../index.html">Read more posts →</a></p>
+        <a class="powered" href="https://ghost.org" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 156"><g fill="none" fill-rule="evenodd"><rect fill="#15212B" width="156" height="156" rx="27"/><g transform="translate(36 36)" fill="#F6F8FA"><path d="M0 71.007A4.004 4.004 0 014 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0130 84H4a4 4 0 01-4-4.007v-8.986zM50 71.007A4.004 4.004 0 0154 67h26a4 4 0 014 4.007v8.986A4.004 4.004 0 0180 84H54a4 4 0 01-4-4.007v-8.986z"/><rect y="34" width="84" height="17" rx="4"/><path d="M0 4.007A4.007 4.007 0 014.007 0h41.986A4.003 4.003 0 0150 4.007v8.986A4.007 4.007 0 0145.993 17H4.007A4.003 4.003 0 010 12.993V4.007z"/><rect x="67" width="17" height="17" rx="4"/></g></g></svg> Published with Ghost</a>
+    </footer>
+    
+</body>
+</html>
