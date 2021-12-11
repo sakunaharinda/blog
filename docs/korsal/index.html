@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>KORSAL: Key-point Detection based Online Real-Time Spatio-Temporal Action Localization</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../assets/main/css/main.css%3Fv=631ad5e040.css" />
+    <noscript><link rel="stylesheet" href="../assets/main/css/noscript.css%3Fv=631ad5e040.css" /></noscript>
+
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
+    
+    <meta property="og:site_name" content="The Seeker" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="KORSAL: Key-point Detection based Online Real-Time Spatio-Temporal Action Localization" />
+    <meta property="og:description" content="Real-time and online action localization in a video is a critical yet highly challenging problem. Accurate action localization requires utilization of both temporal and spatial information. Recent attempts achieve this by using computationally intensive 3D CNN architectures or highly redundant two-stream architectures with optical flow, making them both unsuitable for" />
+    <meta property="og:url" content="http://localhost:2368/korsal/" />
+    <meta property="og:image" content="http://localhost:2368/content/images/2021/12/android-user-activity-recognition-still-walking-running-driving.jpg" />
+    <meta property="article:published_time" content="2021-12-11T13:46:50.000Z" />
+    <meta property="article:modified_time" content="2021-12-11T14:27:51.000Z" />
+    <meta property="article:tag" content="Research" />
+    
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="KORSAL: Key-point Detection based Online Real-Time Spatio-Temporal Action Localization" />
+    <meta name="twitter:description" content="Real-time and online action localization in a video is a critical yet highly challenging problem. Accurate action localization requires utilization of both temporal and spatial information. Recent attempts achieve this by using computationally intensive 3D CNN architectures or highly redundant two-stream architectures with optical flow, making them both unsuitable for" />
+    <meta name="twitter:url" content="http://localhost:2368/korsal/" />
+    <meta name="twitter:image" content="http://localhost:2368/content/images/2021/12/android-user-activity-recognition-still-walking-running-driving.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Sakuna Jayasundara" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Research" />
+    <meta name="twitter:site" content="@ghost" />
+    <meta property="og:image:width" content="720" />
+    <meta property="og:image:height" content="359" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "The Seeker",
+        "url": "http://localhost:2368/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/favicon.ico",
+            "width": 48,
+            "height": 48
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Sakuna Jayasundara",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/content/images/2021/12/IMG_20200411_014007_641.jpg",
+            "width": 596,
+            "height": 596
+        },
+        "url": "http://localhost:2368/author/sakuna/",
+        "sameAs": []
+    },
+    "headline": "KORSAL: Key-point Detection based Online Real-Time Spatio-Temporal Action Localization",
+    "url": "http://localhost:2368/korsal/",
+    "datePublished": "2021-12-11T13:46:50.000Z",
+    "dateModified": "2021-12-11T14:27:51.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://localhost:2368/content/images/2021/12/android-user-activity-recognition-still-walking-running-driving.jpg",
+        "width": 720,
+        "height": 359
+    },
+    "keywords": "Research",
+    "description": "\n\nReal-time and online action localization in a video is a critical yet highly\nchallenging problem. Accurate action localization requires utilization of both\ntemporal and spatial information. Recent attempts achieve this by using\ncomputationally intensive 3D CNN architectures or highly redundant two-stream\narchitectures with optical flow, making them both unsuitable for real-time,\nonline applications.\n\nTo accomplish activity localization under highly challenging real-time\nconstraints, we propose",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:2368/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 4.25" />
+    <link rel="alternate" type="application/rss+xml" title="The Seeker" href="../rss/index.html" />
+    <script defer src="https://unpkg.com/@tryghost/portal@~1.12.0/umd/portal.min.js" data-ghost="http://localhost:2368/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script async src="../public/cards.min.js%3Fv=631ad5e040"></script><style>:root {--ghost-accent-color: #000000;}</style>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=631ad5e040.css">
+
+    <style>#wrapper>.bg {background-image: url(../assets/images/overlay.png%3Fv=631ad5e040),linear-gradient(0deg, rgba(0,0,0,0.1), rgba(0,0,0,0.1)),url("../content/images/2021/12/andreas-selter-e4yK8QQlZa0-unsplash-1.jpg") }</style>
+
+</head>
+<body class="is-preload post-template tag-research">
+
+    <div id="wrapper" >
+
+
+        <header id="header">
+                <a href="../index.html" class="logo">The Seeker</a>
+        </header>
+
+            <nav id="nav">
+    <ul class="links">
+        <li class="nav-home "><a href="../index.html">Home</a></li>
+        <li class="nav-research "><a href="../tag/research/index.html">Research</a></li>
+        <li class="nav-projects "><a href="http://localhost:2368/portal/">Projects</a></li>
+        <li class="nav-articles "><a href="../tag/articles/index.html">Articles</a></li>
+        <li class="nav-author "><a href="../author/sakuna/index.html">Author</a></li>
+    </ul>
+    <ul class="icons">
+        <li><a href="https://twitter.com/ghost" class="icon fa-twitter" title="Twitter"><span class="label">Twitter</span></a></li>
+        <li><a href="https://www.linkedin.com/in/sakuna-harinda/" class="icon fa-linkedin" title="LinkedIn"><span class="label">LinkedIn</span></a></li>
+        <li><a href="https://feedly.com/i/subscription/feed/http://localhost:2368/rss/" class="icon fa-rss" target="_blank" rel="noopener"><span class="label" title="RSS">RSS</span></a></li>
+    </ul>
+</nav>
+
+
+            <main id="main">
+
+    <section class="post">
+
+        <header class="major">
+            <span class="date">December 11, 2021</span>
+            <h1>KORSAL: Key-point Detection based Online Real-Time Spatio-Temporal Action Localization</h1>
+        </header>
+
+        <figure class="image main">
+            <img src="../content/images/2021/12/android-user-activity-recognition-still-walking-running-driving.jpg"
+                alt="KORSAL: Key-point Detection based Online Real-Time Spatio-Temporal Action Localization" />
+        </figure>
+
+        <div class="content">
+            <p></p><p>Real-time and online action localization in a video is a critical yet highly challenging problem. Accurate action localization requires utilization of both temporal and spatial information. Recent attempts achieve this by using computationally intensive 3D CNN architectures or highly redundant two-stream architectures with optical flow, making them both unsuitable for real-time, online applications.</p><p>To accomplish activity localization under highly challenging real-time constraints, we propose utilizing fast and efficient key-point based bounding box prediction to spatially localize actions. We then introduce a tube-linking algorithm that maintains the continuity of action tubes temporally in the presence of occlusions.<br>Further, we eliminate the need for a two-stream architecture by combining temporal and spatial information into a cascaded input to a single network, allowing the network to learn from both types of information. Temporal information is efficiently extracted using a structural similarity index map as opposed to computationally intensive optical flow. Despite the simplicity of our approach, our lightweight end-to-end architecture achieves state-of-the-art frame-mAP of <strong>74.7% </strong>on the challenging UCF101-24 dataset, demonstrating a performance gain of  <strong>6.4% </strong>over the previous best online methods. We also achieve state-of-the-art video-mAP results compared to both online and offline methods. Moreover, our model achieves a frame rate of  <strong>41.8</strong> FPS, which is a <strong>10.7%</strong> improvement over contemporary real-time methods.</p><p>Over method of activity recognition is superior to the current existing research, because of several reasons.</p><ul><li>We utilize key-point based detection architecture for the first time for the task of ST action localization, which reduces model complexity and inference time over traditional anchor-box based approaches.</li><li>We demonstrate that the explicit computation of OF is unnecessary, and that the SSIM index map obtains sufficient inter-frame temporal information.</li><li>We show that the highly redundant two-stream architecture is unnecessary by providing a single network with both spatial and temporal information, and allowing it to extract necessary information through discriminative learning.</li><li>We introduce an efficient tube-linking algorithm that extrapolates the tubes for a short period of time using past detections for real-time deployment.<br></li></ul><p>Our proposed architecture can be shown as follows.</p><figure class="kg-card kg-image-card"><img src="../content/images/2021/12/NewArchitecture.png" class="kg-image" alt loading="lazy" width="1899" height="627" srcset="../content/images/size/w600/2021/12/NewArchitecture.png 600w, ../content/images/size/w1000/2021/12/NewArchitecture.png 1000w, ../content/images/size/w1600/2021/12/NewArchitecture.png 1600w, ../content/images/2021/12/NewArchitecture.png 1899w" sizes="(min-width: 720px) 720px"></figure><p>To obtain temporal information using SSIM Index Map, we used the following architecture.</p><figure class="kg-card kg-image-card"><img src="../content/images/2021/12/SSIM_Calc.png" class="kg-image" alt loading="lazy" width="1899" height="704" srcset="../content/images/size/w600/2021/12/SSIM_Calc.png 600w, ../content/images/size/w1000/2021/12/SSIM_Calc.png 1000w, ../content/images/size/w1600/2021/12/SSIM_Calc.png 1600w, ../content/images/2021/12/SSIM_Calc.png 1899w" sizes="(min-width: 720px) 720px"></figure><h2 id="conclusion">Conclusion</h2><p>In this paper, we proposed a method to solve the challenging problem of <strong>online</strong> and <strong>real-time </strong>spatio-temporal action localization by utilizing simple and efficient key-point based detection architectures. We further improved upon existing linking algorithms to maintain temporal continuity by extrapolating the future positions of action tubes to compensate for missed detections online. We showed that the pre-computation of OF to capture motion information affects real-time performance, and we integrated temporal and appearance feature extraction into a single network. We demonstrated that our approach is able to run faster and achieve better performance than state-of-the-art methods on the UCF101-24 and J-HMDB-21 datasets.</p><p>Further extensions of this work can explore an integrated tube-linking algorithm and faster feature extraction backbones. Moreover, temporally aware feature extraction can also be investigated.</p><p>If you want to know more details about the research, you can visit the following link and checkout our <a href="https://arxiv.org/pdf/2111.03319.pdf">research paper</a>. </p>
+        </div>
+
+
+        <footer class="post-footer">
+
+            <div class="authors">
+                <a class="author-box" href="../author/sakuna/index.html">
+                    <img class="author-profile-image" src="../content/images/2021/12/IMG_20200411_014007_641.jpg" alt="Sakuna Jayasundara" />
+                    <section class="author-box-content">
+                        <div class="author-box-label">Author</div>
+                        <h5 class="author-box-name">Sakuna Jayasundara</h5>
+                        <p>Machine vision and deep learning enthusiast.</p>
+                    </section>
+                </a>
+            </div>
+
+        </footer>
+
+
+        <section class="post-full-comments">
+            <div id="disqus_thread"></div>
+            <script>
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                
+                var disqus_config = function () {
+                this.page.url = "https://sakunaharinda.github.io/myPersonalBlog/";  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = "ghost-61b4aafdf714c603360260d3"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                
+                (function () { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://the-passionate-scholar.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered
+                    by Disqus.</a></noscript>
+        </section>
+
+    </section>
+
+    </main>
+
+
+    <script>
+        var images = document.querySelectorAll('.kg-gallery-image img');
+        images.forEach(function (image) {
+            var container = image.closest('.kg-gallery-image');
+            var width = image.attributes.width.value;
+            var height = image.attributes.height.value;
+            var ratio = width / height;
+            container.style.flex = ratio + ' 1 0%';
+        })
+    </script>
+
+        <div id="copyright">
+    <ul>
+        <li>&copy; The Seeker</li>
+        <li>Design by <a href="https://html5up.net">HTML5 UP</a></li>
+        <li>Published with <a href="https://ghost.org">Ghost</a></li>
+    </ul>
+</div>
+    </div>
+
+
+    <script src="../assets/main/js/jquery.min.js%3Fv=631ad5e040"></script>
+    <script src="../assets/main/js/jquery.scrollex.min.js%3Fv=631ad5e040"></script>
+    <script src="../assets/main/js/jquery.scrolly.min.js%3Fv=631ad5e040"></script>
+    <script src="../assets/main/js/browser.min.js%3Fv=631ad5e040"></script>
+    <script src="../assets/main/js/breakpoints.min.js%3Fv=631ad5e040"></script>
+    <script src="../assets/main/js/util.js%3Fv=631ad5e040"></script>
+    <script src="../assets/main/js/main.js%3Fv=631ad5e040"></script>
+
+    
+
+</body>
+</html>
