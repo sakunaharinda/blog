@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -9,8 +8,74 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../assets/main/css/main.css%3Fv=8d1182e356.css" />
-    <noscript><link rel="stylesheet" href="../assets/main/css/noscript.css%3Fv=8d1182e356.css" /></noscript>
+    <link rel="preload" href="../assets/css/app.css%3Fv=404816d3b4.css" as="style" />
+    <link rel="preload" href="../assets/js/manifest.js%3Fv=404816d3b4" as="script" />
+    <link rel="preload" href="../assets/js/vendor/content-api.min.js%3Fv=404816d3b4" as="script" />
+    <link rel="preload" href="../assets/js/vendor.js%3Fv=404816d3b4" as="script" />
+    <link rel="preload" href="../assets/js/app.js%3Fv=404816d3b4" as="script" />
+    <link rel="preconnect" href="https://polyfill.io">
+    <link rel="dns-prefetch" href="https://polyfill.io">
+
+      <link rel="preload" href="../assets/css/post.css%3Fv=404816d3b4.css" as="style" />
+  <link rel="preload" href="../assets/js/post.js%3Fv=404816d3b4" as="script" />
+
+
+    <style>
+      /* These font-faces are here to make fonts work if the Ghost instance is installed in a subdirectory */
+
+      /* source-sans-pro-regular */
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: local('SourceSansPro-Regular'),
+            url("../assets/fonts/source-sans-pro/latin/source-sans-pro-regular.woff2%3Fv=404816d3b4") format('woff2'),
+            url("../assets/fonts/source-sans-pro/latin/source-sans-pro-regular.woff%3Fv=404816d3b4") format('woff');
+      }
+
+      /* source-sans-pro-600 */
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: local('SourceSansPro-SemiBold'),
+            url("../assets/fonts/source-sans-pro/latin/source-sans-pro-600.woff2%3Fv=404816d3b4") format('woff2'),
+            url("../assets/fonts/source-sans-pro/latin/source-sans-pro-600.woff%3Fv=404816d3b4") format('woff');
+      }
+
+      /* source-sans-pro-700 */
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: local('SourceSansPro-Bold'),
+            url("../assets/fonts/source-sans-pro/latin/source-sans-pro-700.woff2%3Fv=404816d3b4") format('woff2'),
+            url("../assets/fonts/source-sans-pro/latin/source-sans-pro-700.woff%3Fv=404816d3b4") format('woff');
+      }
+
+      /* iconmoon */
+      @font-face {
+        font-family: 'icomoon';
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+        src: url("../assets/fonts/icomoon/icomoon.eot%3F101fc3%3Fv=404816d3b4");
+        src: url("../assets/fonts/icomoon/icomoon.eot%3F101fc3") format('embedded-opentype'),
+        url("../assets/fonts/icomoon/icomoon.ttf%3F101fc3%3Fv=404816d3b4") format('truetype'),
+        url("../assets/fonts/icomoon/icomoon.woff%3F101fc3%3Fv=404816d3b4") format('woff'),
+        url("../assets/fonts/icomoon/icomoon.svg%3F101fc3") format('svg');
+      }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/app.css%3Fv=404816d3b4.css" media="screen" />
+
+      <link rel="stylesheet" type="text/css" href="../assets/css/post.css%3Fv=404816d3b4.css" media="screen" />
+
+
+    
 
     <link rel="canonical" href="index.html" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -50,7 +115,7 @@
         "url": "http://localhost:2368/",
         "logo": {
             "@type": "ImageObject",
-            "url": "http://localhost:2368/content/images/2021/12/Screenshot_2021-12-12_at_13.20.21-removebg-preview-2.png"
+            "url": "http://localhost:2368/content/images/2021/12/image--1-.png"
         }
     },
     "author": {
@@ -86,194 +151,378 @@
 
     <meta name="generator" content="Ghost 4.25" />
     <link rel="alternate" type="application/rss+xml" title="The Seeker" href="../rss/index.html" />
-    <script defer src="https://unpkg.com/@tryghost/portal@~1.12.0/umd/portal.min.js" data-ghost="http://localhost:2368/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
-.gh-post-upgrade-cta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-align: center;
-    width: 100%;
-    color: #ffffff;
-    font-size: 16px;
-}
-
-.gh-post-upgrade-cta-content {
-    border-radius: 8px;
-    padding: 40px 4vw;
-}
-
-.gh-post-upgrade-cta h2 {
-    color: #ffffff;
-    font-size: 28px;
-    letter-spacing: -0.2px;
-    margin: 0;
-    padding: 0;
-}
-
-.gh-post-upgrade-cta p {
-    margin: 20px 0 0;
-    padding: 0;
-}
-
-.gh-post-upgrade-cta small {
-    font-size: 16px;
-    letter-spacing: -0.2px;
-}
-
-.gh-post-upgrade-cta a {
-    color: #ffffff;
-    cursor: pointer;
-    font-weight: 500;
-    box-shadow: none;
-    text-decoration: underline;
-}
-
-.gh-post-upgrade-cta a:hover {
-    color: #ffffff;
-    opacity: 0.8;
-    box-shadow: none;
-    text-decoration: underline;
-}
-
-.gh-post-upgrade-cta a.gh-btn {
-    display: block;
-    background: #ffffff;
-    text-decoration: none;
-    margin: 28px 0 0;
-    padding: 8px 18px;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.gh-post-upgrade-cta a.gh-btn:hover {
-    opacity: 0.92;
-}</style>
-    <script async src="../public/cards.min.js%3Fv=8d1182e356"></script><style>:root {--ghost-accent-color: #000000;}</style>
-    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=8d1182e356.css">
-
-    <style>#wrapper>.bg {background-image: url(../assets/images/overlay.png%3Fv=8d1182e356),linear-gradient(0deg, rgba(0,0,0,0.1), rgba(0,0,0,0.1)),url("../content/images/2021/12/retrosupply-jLwVAUtLOAQ-unsplash-1.jpg") }</style>
-
-</head>
-<body class="is-preload post-template tag-articles">
-
-    <div id="wrapper" >
-
-
-        <header id="header">
-                <a href="../index.html" class="logo image"><img src="../content/images/2021/12/Screenshot_2021-12-12_at_13.20.21-removebg-preview-2.png" alt="The Seeker" /></a>
-        </header>
-
-            <nav id="nav">
-    <ul class="links">
-        <li class="nav-home "><a href="../index.html">Home</a></li>
-        <li class="nav-research "><a href="../tag/research/index.html">Research</a></li>
-        <li class="nav-projects "><a href="../tag/projects/index.html">Projects</a></li>
-        <li class="nav-articles "><a href="../tag/articles/index.html">Articles</a></li>
-        <li class="nav-author "><a href="../author/sakuna/index.html">Author</a></li>
-    </ul>
-    <ul class="icons">
-        <li><a href="https://twitter.com/ghost" class="icon fa-twitter" title="Twitter"><span class="label">Twitter</span></a></li>
-        <li><a href="https://www.linkedin.com/in/sakuna-harinda/" class="icon fa-linkedin" title="LinkedIn"><span class="label">LinkedIn</span></a></li>
-        <li><a href="https://feedly.com/i/subscription/feed/http://localhost:2368/rss/" class="icon fa-rss" target="_blank" rel="noopener"><span class="label" title="RSS">RSS</span></a></li>
-    </ul>
-</nav>
-
-
-            <main id="main">
-
-    <section class="post">
-
-        <header class="major">
-            <span class="date">December 4, 2021</span>
-            <h1>Google Cloud Platform 101</h1>
-        </header>
-
-        <figure class="image main">
-            <img src="../content/images/2021/12/1-VPTDOCbtNRQSOwWmw_zERw.png"
-                alt="Google Cloud Platform 101" />
-        </figure>
-
-        <div class="content">
-            <h2 id="core-infrastructure-%E2%80%94-introduction">Core Infrastructure — Introduction</h2><p></p><p>Google cloud platform (GCP) is a platform offered by Google with main 4 services run on the infrastructure that Google uses for some well known applications such as Youtube and Google Search.What are these 4 main kinds?<br></p><ul><li>Compute — App Engine, Compute Engine, Kubernetes Engine, Cloud Functions etc..</li><li>Storage — Cloud Storage, Cloud Big Table, Cloud Datastore, Persistent Disk etc..</li><li>Big Data — Big Query, Cloud Dataflow, Cloud Dataproc, Cloud Dataprep, Cloud Composer</li><li>Machine Learning — Cloud, AutoML, Cloud TPU, Cloud Vision API, Cloud Natural Language, Cloud Speech to Text, Cloud Video Intelligance etc..</li></ul><p>In this article I’m giving the basic idea about what GCP is and how is it organized.We will be discussing about aforementioned four kinds in more details in my future articles.So let’s move forward.</p><h4 id="what-is-cloud-computing">What is Cloud Computing ?</h4><p>Today world is massively depending on “Cloud Computing”. So what’s exactly is this Cloud Computing? Here is the definition.</p><blockquote><em>“ Cloud computing is a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and released with minimal management effort or service provider interaction.” — </em> <strong>Peter M. Mell</strong> <strong>Timothy Grance</strong></blockquote><p>Seems pretty hard to understand. Isn’t it? 😉</p><p>So the basic idea of cloud computing is a way of using I.T. with following important traits.</p><figure class="kg-card kg-image-card"><img src="../content/images/2021/12/1-VPTDOCbtNRQSOwWmw_zERw-1.png" class="kg-image" alt loading="lazy" width="641" height="361" srcset="../content/images/size/w600/2021/12/1-VPTDOCbtNRQSOwWmw_zERw-1.png 600w, ../content/images/2021/12/1-VPTDOCbtNRQSOwWmw_zERw-1.png 641w"></figure><p>You can allocate resources as much as you want without any human intervention. Only you have to do is to use an interface, then you will get all the facilities such as storage and processing power. You can access your allocated resources any where in the world. May be your allocated resources are located in a different part of the world. </p><p>Elasticity is a very important facility. You can scale your resources as you want quickly and more importantly you pay for what you are using. If you are not using a resource anymore, you don’t pay.</p><p>So that’s it .. !! You know now the basic idea of cloud computing with GCP.</p><p>There are several GCP computing architectures. You can use any of them as per your requirement.</p><figure class="kg-card kg-image-card"><img src="../content/images/2021/12/1-9hWmMCwMwKRqQpVKybgxZA.png" class="kg-image" alt loading="lazy" width="646" height="365" srcset="../content/images/size/w600/2021/12/1-9hWmMCwMwKRqQpVKybgxZA.png 600w, ../content/images/2021/12/1-9hWmMCwMwKRqQpVKybgxZA.png 646w"></figure><ul><li>IaaS (Infrastructure as a Service) — Provides raw compute,storage and network facilities and you have to pay what you allocate.</li><li>PaaS (Platform as a Service) — This binds the application code to libraries that allows you to access the resources what your application needs and you pay what you use.</li><li>Saas (Software as a Service) — Many applications like Gmail,Google Drive and othre GSuit applications based on this architecture</li></ul><p>You do not need to worry about the resource provisioning at all !!</p><p>In network perspective, did you know the 40% of day-to-day internet traffic is handled by Google? Google network is designed to provide customers the highest possible throughput while providing the lowest possible latency. To provide such an amazing throughput and latency Google uses so called “Edge Network system” to cite content near the end users.</p><p>Let’s see how the GCP is organized.</p><figure class="kg-card kg-image-card"><img src="../content/images/2021/12/1-o5asfkzuXHACBYBm-b1GrQ.png" class="kg-image" alt loading="lazy" width="647" height="368" srcset="../content/images/size/w600/2021/12/1-o5asfkzuXHACBYBm-b1GrQ.png 600w, ../content/images/2021/12/1-o5asfkzuXHACBYBm-b1GrQ.png 647w"></figure><p>Zone is the deployment area of the GCP.When you want to run a Virtual Machine (VM) in GCP, that would be placed on a zone you defined. Region is created using several zones. Regions are located in several geographical locations with round trip network latency under 5ms !! If you need to establish an application with high availability you should establish your application in multiple zones.That allows you to provide the service continuously without any failure. Google provides multi region resource allocation facility. Which means your resources are located at least two geographically different locations which are 160 km apart. The most important thing is you can use resources located in multiple regions for the sake of virtualization.</p><p>Google always thinks about the environment too.Running many servers full of resources requires very high power consumption(approx. 2% of world electricity).For that google build their data centers near regenerative energy sources like sea and 100% carbon neutral since 2007. A great example provides by the data center located in Finland.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/12/1-Q2gALaR8Qkb-boBWCiHwBA.jpg" class="kg-image" alt loading="lazy" width="500" height="333"><figcaption>Data center in Finland</figcaption></figure><p>Finally, We’ve reached to the end of  the introduction to GCP article. Before I end this, let’s talk about the security of the GCP.</p><p>Since millions of users use GCP, security is essential. Google make their own custom servers with a high hardware security chip named “Titan”. These servers use cryptographic signatures to make sure the correct software is booted. There are several layers of security in these servers which can be accessed by a very few of google employees.Then how the servers communicate each other securely? For that google uses a cryptographic remote procedure called data-on-the network. GCP encrypts all our PC traffic while flowing. In the Google logging page you need more than your username and password.Google uses an intelligent system to challenge users for additional information based on several risk factors such as a device logged in your account in a suspicious time and in a different location. Google allows you to use two-factor authorization to sign in. Inside the google infrastructure the intelligence system warns you about any suspicious activity.Not only that google conducts Red team exercises and simulated attacks to test and improve the responsiveness of the system.Every account needs U2F key to avoid phishing attacks.So you have nothing to worry about your security anymore.Google handles all !!</p><p>So we have discussed about some basics and techniques that we should know when we step into the GCP world. Let's talk more about GCP later. Till then Good Bye !!</p>
-        </div>
-
-
-        <footer class="post-footer">
-
-            <div class="authors">
-                <a class="author-box" href="../author/sakuna/index.html">
-                    <img class="author-profile-image" src="../content/images/2021/12/IMG_20200411_014007_641.jpg" alt="Sakuna Jayasundara" />
-                    <section class="author-box-content">
-                        <div class="author-box-label">Author</div>
-                        <h5 class="author-box-name">Sakuna Jayasundara</h5>
-                        <p>Machine vision and deep learning enthusiast.</p>
-                    </section>
-                </a>
-            </div>
-
-        </footer>
-
-
-        <section class="post-full-comments">
-            <div id="disqus_thread"></div>
-            <script>
-                /**
-                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                
-                var disqus_config = function () {
-                this.page.url = "https://sakunaharinda.github.io/myPersonalBlog/";  // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = "ghost-61abc07f6e3de41686ad0e4a"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                };
-                
-                (function () { // DON'T EDIT BELOW THIS LINE
-                    var d = document, s = d.createElement('script');
-                    s.src = 'https://the-passionate-scholar.disqus.com/embed.js';
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
-                })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered
-                    by Disqus.</a></noscript>
-        </section>
-
-    </section>
-
-    </main>
-
+    
+    <script async src="../public/cards.min.js%3Fv=404816d3b4"></script><style>:root {--ghost-accent-color: #000000;}</style>
+    <link rel="stylesheet" type="text/css" href="../public/cards.min.css%3Fv=404816d3b4.css">
 
     <script>
-        var images = document.querySelectorAll('.kg-gallery-image img');
-        images.forEach(function (image) {
-            var container = image.closest('.kg-gallery-image');
-            var width = image.attributes.width.value;
-            var height = image.attributes.height.value;
-            var ratio = width / height;
-            container.style.flex = ratio + ' 1 0%';
-        })
+      // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
+      const ghostHost = "http://localhost:2368"
+      // @license-end
     </script>
-
-        <div id="copyright">
-    <ul>
-        <li>&copy; The Seeker</li>
-        <li>Design by <a href="https://html5up.net">HTML5 UP</a></li>
-        <li>Published with <a href="https://ghost.org">Ghost</a></li>
-    </ul>
-</div>
-    </div>
-
-
-    <script src="../assets/main/js/jquery.min.js%3Fv=8d1182e356"></script>
-    <script src="../assets/main/js/jquery.scrollex.min.js%3Fv=8d1182e356"></script>
-    <script src="../assets/main/js/jquery.scrolly.min.js%3Fv=8d1182e356"></script>
-    <script src="../assets/main/js/browser.min.js%3Fv=8d1182e356"></script>
-    <script src="../assets/main/js/breakpoints.min.js%3Fv=8d1182e356"></script>
-    <script src="../assets/main/js/util.js%3Fv=8d1182e356"></script>
-    <script src="../assets/main/js/main.js%3Fv=8d1182e356"></script>
-
+  </head>
+  <body class="post-template tag-articles">
     
 
-</body>
+
+
+  
+<header class="m-header with-picture js-header">
+  <div class="m-mobile-topbar" data-aos="fade-down">
+    <button class="m-icon-button in-mobile-topbar js-open-menu" aria-label="Open menu">
+      <span class="icon-menu" aria-hidden="true"></span>
+    </button>
+      <a href="../index.html" class="m-logo in-mobile-topbar">
+        <img src="../content/images/2021/12/image--1-.png" alt="The Seeker">
+      </a>
+    <button class="m-icon-button in-mobile-topbar js-open-search" aria-label="Open search">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    
+  </div>
+
+  <div class="m-menu js-menu">
+    <button class="m-icon-button outlined as-close-menu js-close-menu" aria-label="Close menu">
+      <span class="icon-close"></span>
+    </button>
+    <div class="m-menu__main" data-aos="fade-down">
+      <div class="l-wrapper">
+        <div class="m-nav js-main-nav">
+          <nav class="m-nav__left js-main-nav-left" role="navigation" aria-label="Main menu">
+            <ul>
+                <li class="only-desktop">
+                  <a href="../index.html" class="m-logo">
+                    <img src="../content/images/2021/12/image--1-.png" alt="The Seeker">
+                  </a>
+                </li>
+                
+    <li class="nav-home">
+      <a href="../index.html">Home</a>
+    </li>
+    <li class="nav-research">
+      <a href="../tag/research/index.html">Research</a>
+    </li>
+    <li class="nav-projects">
+      <a href="../tag/projects/index.html">Projects</a>
+    </li>
+    <li class="nav-articles">
+      <a href="../tag/articles/index.html">Articles</a>
+    </li>
+    <li class="nav-author">
+      <a href="../author/sakuna/index.html">Author</a>
+    </li>
+    <li class="nav-cv">
+      <a href="../blank/index.html">CV</a>
+    </li>
+
+              <li class="submenu-option js-submenu-option">
+                <button class="m-icon-button in-menu-main more js-toggle-submenu" aria-label="Open submenu">
+                  <span class="icon-more" aria-hidden="true"></span>
+                </button>
+                <div class="m-submenu js-submenu">
+                  <div class="l-wrapper in-submenu">
+                    <section class="m-recent-articles">
+                      <h3 class="m-submenu-title in-recent-articles">Recent articles</h3>
+                          <div class="glide js-recent-slider">
+                            <div class="glide__track" data-glide-el="track">
+                              <div class="glide__slides">
+                                <div class="glide__slide">
+                                  <a href="../object-detection-tracking-and-suspicious-activity-recognition-formaritime-surveillance-using-thermal-vision/index.html" class="m-recent-article">
+                                    <div class="m-recent-article__picture ">
+                                        <img src="../content/images/size/w300/2021/12/PTI02_10_2021_000230B_1613623895951_1613623935527_1638100241965.jpg" loading="lazy" alt="">
+                                    </div>
+                                    <h3 class="m-recent-article__title js-recent-article-title" title="Object Detection, Tracking and Suspicious Activity Recognition for
+Maritime Surveillance using Thermal Vision">
+                                      Object Detection, Tracking and Suspicious Activity Recognition for
+Maritime Surveillance using Thermal Vision
+                                    </h3>
+                                    <span class="m-recent-article__date">8 hours ago</span>
+                                  </a>
+                                </div>
+                                <div class="glide__slide">
+                                  <a href="../fpga-based-processor-implementation/index.html" class="m-recent-article">
+                                    <div class="m-recent-article__picture ">
+                                        <img src="../content/images/size/w300/2021/12/photo-1597862624292-45748390b00e.jpg" loading="lazy" alt="">
+                                    </div>
+                                    <h3 class="m-recent-article__title js-recent-article-title" title="FPGA Based Processor Implementation">
+                                      FPGA Based Processor Implementation
+                                    </h3>
+                                    <span class="m-recent-article__date">21 hours ago</span>
+                                  </a>
+                                </div>
+                                <div class="glide__slide">
+                                  <a href="../korsal/index.html" class="m-recent-article">
+                                    <div class="m-recent-article__picture ">
+                                        <img src="../content/images/size/w300/2021/12/android-user-activity-recognition-still-walking-running-driving.jpg" loading="lazy" alt="">
+                                    </div>
+                                    <h3 class="m-recent-article__title js-recent-article-title" title="KORSAL: Key-point Detection based Online Real-Time Spatio-Temporal Action Localization">
+                                      KORSAL: Key-point Detection based Online Real-Time Spatio-Temporal Action Localization
+                                    </h3>
+                                    <span class="m-recent-article__date">a day ago</span>
+                                  </a>
+                                </div>
+                                <div class="glide__slide">
+                                  <a href="index.html" class="m-recent-article">
+                                    <div class="m-recent-article__picture ">
+                                        <img src="../content/images/size/w300/2021/12/1-VPTDOCbtNRQSOwWmw_zERw.png" loading="lazy" alt="">
+                                    </div>
+                                    <h3 class="m-recent-article__title js-recent-article-title" title="Google Cloud Platform 101">
+                                      Google Cloud Platform 101
+                                    </h3>
+                                    <span class="m-recent-article__date">8 days ago</span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </section>
+                    <section class="m-tags">
+                      <h3 class="m-submenu-title">Tags</h3>
+                        <ul>
+                            <li>
+                              <a href="../tag/articles/index.html">Articles</a>
+                            </li>
+                            <li>
+                              <a href="../tag/projects/index.html">Projects</a>
+                            </li>
+                            <li>
+                              <a href="../tag/research/index.html">Research</a>
+                            </li>
+                        </ul>
+                    </section>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <div class="m-nav__right">
+            <button class="m-icon-button in-menu-main js-open-search" aria-label="Open search">
+              <span class="icon-search" aria-hidden="true"></span>
+            </button>
+            <div class="m-toggle-darkmode js-tooltip" data-tippy-content="Toggle dark mode" tabindex="0">
+              <label for="toggle-darkmode" class="sr-only">
+                Toggle dark mode
+              </label>
+              <input id="toggle-darkmode" type="checkbox" class="js-toggle-darkmode">
+              <div>
+                <span class="icon-moon moon" aria-hidden="true"></span>
+                <span class="icon-sunny sun" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+<main class="main-wrap">
+    
+  <section class="m-hero with-picture" data-aos="fade">
+    <div class="m-hero__picture in-post">
+      <img
+        srcset="../content/images/size/w300/2021/12/1-VPTDOCbtNRQSOwWmw_zERw.pngmw_zERw.png 300w../content/images/size/w600/2021/12/1-VPTDOCbtNRQSOwWmw_zERw.pngWmw_zERw.png 600../content/images/size/w1000/2021/12/1-VPTDOCbtNRQSOwWmw_zERw.pngwWmw_zERw.png 100../content/images/size/w2000/2021/12/1-VPTDOCbtNRQSOwWmw_zERw.pngOwWmw_zERw.png 2000w
+        "
+        sizes="(max-width: 600px) 600px, (max-width: 1000px) 1000px, 2000px"
+        src="../content/images/size/w1000/2021/12/1-VPTDOCbtNRQSOwWmw_zERw.png"
+        alt=""
+      />
+    </div>
+    </section>
+  
+  <article>
+    <div class="l-content in-post">
+        <div class="l-wrapper in-post  js-aos-wrapper" data-aos="fade-up"
+          data-aos-delay="300">
+          <div
+            class="l-post-content js-progress-content">
+            <header class="m-heading">
+              <h1 class="m-heading__title in-post">Google Cloud Platform 101</h1>
+              <div class="m-heading__meta">
+                  <a href="../tag/articles/index.html" class="m-heading__meta__tag">Articles</a>
+                  <span class="m-heading__meta__divider" aria-hidden="true">&bull;</span>
+                <span class="m-heading__meta__time">Dec 4, 2021</span>
+              </div>
+            </header>
+            <div class="pos-relative js-post-content">
+              <div class="m-share">
+                <div class="m-share__content js-sticky">
+
+                  <a href="https://github.com/sakunaharinda"
+                    class="m-icon-button filled in-share" target="_blank" rel="noopener" aria-label="Facebook">
+                    <span class="icon-github" aria-hidden="true"></span>
+                  </a>
+                  <a href="https://scholar.google.com/citations?user=_2tM_-UAAAAJ&hl=en"
+                    class="m-icon-button filled in-share" target="_blank" rel="noopener" aria-label="Twitter">
+                    <span class="icon-globe" aria-hidden="true"></span>
+                  </a>
+                  <a href="https://www.linkedin.com/in/sakuna-harinda/"
+                    class="m-icon-button filled in-share" target="_blank" rel="noopener" aria-label="Twitter">
+                    <span class="icon-linkedin" aria-hidden="true"></span>
+                  </a>
+                  <button class="m-icon-button filled in-share progress js-scrolltop" aria-label="Scroll to top">
+                    <span class="icon-arrow-top" aria-hidden="true"></span>
+                    <svg aria-hidden="true">
+                      <circle class="progress-ring__circle js-progress" fill="transparent" r="0" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <h2 id="core-infrastructure-%E2%80%94-introduction">Core Infrastructure — Introduction</h2><p></p><p>Google cloud platform (GCP) is a platform offered by Google with main 4 services run on the infrastructure that Google uses for some well known applications such as Youtube and Google Search.What are these 4 main kinds?<br></p><ul><li>Compute — App Engine, Compute Engine, Kubernetes Engine, Cloud Functions etc..</li><li>Storage — Cloud Storage, Cloud Big Table, Cloud Datastore, Persistent Disk etc..</li><li>Big Data — Big Query, Cloud Dataflow, Cloud Dataproc, Cloud Dataprep, Cloud Composer</li><li>Machine Learning — Cloud, AutoML, Cloud TPU, Cloud Vision API, Cloud Natural Language, Cloud Speech to Text, Cloud Video Intelligance etc..</li></ul><p>In this article I’m giving the basic idea about what GCP is and how is it organized.We will be discussing about aforementioned four kinds in more details in my future articles.So let’s move forward.</p><h4 id="what-is-cloud-computing">What is Cloud Computing ?</h4><p>Today world is massively depending on “Cloud Computing”. So what’s exactly is this Cloud Computing? Here is the definition.</p><blockquote><em>“ Cloud computing is a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and released with minimal management effort or service provider interaction.” — </em> <strong>Peter M. Mell</strong> <strong>Timothy Grance</strong></blockquote><p>Seems pretty hard to understand. Isn’t it? 😉</p><p>So the basic idea of cloud computing is a way of using I.T. with following important traits.</p><figure class="kg-card kg-image-card"><img src="../content/images/2021/12/1-VPTDOCbtNRQSOwWmw_zERw-1.png" class="kg-image" alt loading="lazy" width="641" height="361" srcset="../content/images/size/w600/2021/12/1-VPTDOCbtNRQSOwWmw_zERw-1.png 600w, ../content/images/2021/12/1-VPTDOCbtNRQSOwWmw_zERw-1.png 641w"></figure><p>You can allocate resources as much as you want without any human intervention. Only you have to do is to use an interface, then you will get all the facilities such as storage and processing power. You can access your allocated resources any where in the world. May be your allocated resources are located in a different part of the world. </p><p>Elasticity is a very important facility. You can scale your resources as you want quickly and more importantly you pay for what you are using. If you are not using a resource anymore, you don’t pay.</p><p>So that’s it .. !! You know now the basic idea of cloud computing with GCP.</p><p>There are several GCP computing architectures. You can use any of them as per your requirement.</p><figure class="kg-card kg-image-card"><img src="../content/images/2021/12/1-9hWmMCwMwKRqQpVKybgxZA.png" class="kg-image" alt loading="lazy" width="646" height="365" srcset="../content/images/size/w600/2021/12/1-9hWmMCwMwKRqQpVKybgxZA.png 600w, ../content/images/2021/12/1-9hWmMCwMwKRqQpVKybgxZA.png 646w"></figure><ul><li>IaaS (Infrastructure as a Service) — Provides raw compute,storage and network facilities and you have to pay what you allocate.</li><li>PaaS (Platform as a Service) — This binds the application code to libraries that allows you to access the resources what your application needs and you pay what you use.</li><li>Saas (Software as a Service) — Many applications like Gmail,Google Drive and othre GSuit applications based on this architecture</li></ul><p>You do not need to worry about the resource provisioning at all !!</p><p>In network perspective, did you know the 40% of day-to-day internet traffic is handled by Google? Google network is designed to provide customers the highest possible throughput while providing the lowest possible latency. To provide such an amazing throughput and latency Google uses so called “Edge Network system” to cite content near the end users.</p><p>Let’s see how the GCP is organized.</p><figure class="kg-card kg-image-card"><img src="../content/images/2021/12/1-o5asfkzuXHACBYBm-b1GrQ.png" class="kg-image" alt loading="lazy" width="647" height="368" srcset="../content/images/size/w600/2021/12/1-o5asfkzuXHACBYBm-b1GrQ.png 600w, ../content/images/2021/12/1-o5asfkzuXHACBYBm-b1GrQ.png 647w"></figure><p>Zone is the deployment area of the GCP.When you want to run a Virtual Machine (VM) in GCP, that would be placed on a zone you defined. Region is created using several zones. Regions are located in several geographical locations with round trip network latency under 5ms !! If you need to establish an application with high availability you should establish your application in multiple zones.That allows you to provide the service continuously without any failure. Google provides multi region resource allocation facility. Which means your resources are located at least two geographically different locations which are 160 km apart. The most important thing is you can use resources located in multiple regions for the sake of virtualization.</p><p>Google always thinks about the environment too.Running many servers full of resources requires very high power consumption(approx. 2% of world electricity).For that google build their data centers near regenerative energy sources like sea and 100% carbon neutral since 2007. A great example provides by the data center located in Finland.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../content/images/2021/12/1-Q2gALaR8Qkb-boBWCiHwBA.jpg" class="kg-image" alt loading="lazy" width="500" height="333"><figcaption>Data center in Finland</figcaption></figure><p>Finally, We’ve reached to the end of  the introduction to GCP article. Before I end this, let’s talk about the security of the GCP.</p><p>Since millions of users use GCP, security is essential. Google make their own custom servers with a high hardware security chip named “Titan”. These servers use cryptographic signatures to make sure the correct software is booted. There are several layers of security in these servers which can be accessed by a very few of google employees.Then how the servers communicate each other securely? For that google uses a cryptographic remote procedure called data-on-the network. GCP encrypts all our PC traffic while flowing. In the Google logging page you need more than your username and password.Google uses an intelligent system to challenge users for additional information based on several risk factors such as a device logged in your account in a suspicious time and in a different location. Google allows you to use two-factor authorization to sign in. Inside the google infrastructure the intelligence system warns you about any suspicious activity.Not only that google conducts Red team exercises and simulated attacks to test and improve the responsiveness of the system.Every account needs U2F key to avoid phishing attacks.So you have nothing to worry about your security anymore.Google handles all !!</p><p>So we have discussed about some basics and techniques that we should know when we step into the GCP world. Let's talk more about GCP later. Till then Good Bye !!</p>
+                <section class="m-tags in-post">
+                  <h3 class="m-submenu-title">Tags</h3>
+                  <ul>
+                      <li>
+                        <a href="../tag/articles/index.html" title="Articles">Articles</a>
+                      </li>
+                  </ul>
+                </section>
+            </div>
+          </div>
+        </div>
+        <section class="m-author">
+          <div class="m-author__content">
+            <div class="m-author__picture">
+              <a href="../author/sakuna/index.html" class="m-author-picture" aria-label="Sakuna Jayasundara">
+                  <div style="background-image: url(../content/images/2021/12/IMG_20200411_014007_641.jpg);"></div>
+              </a>
+            </div>
+            <div class="m-author__info">
+              <h4 class="m-author__name">
+                <a href="../author/sakuna/index.html">Sakuna Jayasundara</a>
+              </h4>
+                <p class="m-author__bio">Machine vision and deep learning enthusiast.</p>
+              <ul class="m-author-links">
+              </ul>
+            </div>
+          </div>
+        </section>
+          <section class="m-recommended">
+            <div class="l-wrapper in-recommended">
+              <h3 class="m-section-title in-recommended">Recommended for you</h3>
+              <div class="m-recommended-articles">
+                <div class="m-recommended-slider glide js-recommended-slider">
+                  <div class="glide__track" data-glide-el="track">
+                    <div class="glide__slides">
+                      
+    <div class="m-recommended-slider__item glide__slide">
+      <div class="m-heading no-margin">
+        <h3>No posts found</h3>
+        <p>
+          Apparently there are no posts at the moment, check again later.
+        </p>
+      </div>
+    </div>
+                    </div>
+                  </div>
+                  <div data-glide-el="controls" class="glide__arrows js-controls">
+                    <button data-glide-dir="<" class="m-icon-button filled in-recommended-articles glide-prev" aria-label="Previous">
+                      <span class="icon-arrow-left" aria-hidden="true"></span>
+                    </button>
+                    <button data-glide-dir=">" class="m-icon-button filled in-recommended-articles glide-next" aria-label="Next">
+                      <span class="icon-arrow-right" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+    </div>
+  </article>
+</main>
+
+
+
+    
+<div class="m-search js-search" role="dialog" aria-modal="true" aria-label="Search">
+  <button class="m-icon-button outlined as-close-search js-close-search" aria-label="Close search">
+    <span class="icon-close" aria-hidden="true"></span>
+  </button>
+  <div class="m-search__content">
+    <form class="m-search__form">
+      <div class="pos-relative">
+        <span class="icon-search m-search-icon" aria-hidden="true"></span>
+        <label for="search-input" class="sr-only">
+          Type to search
+        </label>
+        <input id="search-input" type="text" class="m-input in-search js-input-search" placeholder="Type to search">
+      </div>
+    </form>
+    <div class="js-search-results hide"></div>
+    <p class="m-not-found align-center hide js-no-results">
+      No results for your search, please try with something else.
+    </p>
+  </div>
+</div>
+
+    
+<footer class="m-footer">
+  <div class="m-footer__content">
+    <nav class="m-footer-social">
+        <a href="https://twitter.com/ghost" target="_blank" rel="noopener" aria-label="Twitter">
+          <span class="icon-twitter" aria-hidden="true"></span>
+        </a>
+      <a href="https://github.com/sakunaharinda" aria-label="Github">
+        <span class="icon-github" aria-hidden="true"></span>
+      </a>
+      <a href="https://scholar.google.com/citations?user=_2tM_-UAAAAJ&hl=en" aria-label="Google Scholar">
+        <span class="icon-globe" aria-hidden="true"></span>
+      </a>
+      <a href="https://www.linkedin.com/in/sakuna-harinda/" aria-label="LinkedIn">
+        <span class="icon-linkedin" aria-hidden="true"></span>
+      </a>
+      <a href="http://localhost:2368/rss" aria-label="RSS">
+        <span class="icon-rss" aria-hidden="true"></span>
+      </a>
+    </nav>
+    <p class="m-footer-copyright">
+      <span>The Seeker &copy; 2021</span>
+      <span>&nbsp; &bull; &nbsp;</span>
+      <span>Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a></span>
+    </p>
+    <p class="m-footer-copyright jslicense">
+      <a href="../assets/html/javascript.html%3Fv=404816d3b4.html" rel="jslicense">JavaScript license information</a>
+    </p>
+  </div>
+</footer>
+
+    <div class="m-alert success subscribe js-alert" data-notification="subscribe">
+  Great! You&#x27;ve successfully subscribed.
+  <button class="m-alert__close js-notification-close" aria-label="Close">
+    <span class="icon-close"></span>
+  </button>
+</div>
+
+<div class="m-alert success signup js-alert" data-notification="signup">
+  Great! Next, complete checkout for full access.
+  <button class="m-alert__close js-notification-close" aria-label="Close">
+    <span class="icon-close"></span>
+  </button>
+</div>
+
+<div class="m-alert success signin js-alert" data-notification="signin">
+  Welcome back! You&#x27;ve successfully signed in.
+  <button class="m-alert__close js-notification-close" aria-label="Close">
+    <span class="icon-close"></span>
+  </button>
+</div>
+
+<div class="m-alert success checkout js-alert" data-notification="checkout">
+  Success! Your account is fully activated, you now have access to all content.
+  <button class="m-alert__close js-notification-close" aria-label="Close">
+    <span class="icon-close"></span>
+  </button>
+</div>
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver%2CPromise%2CArray.prototype.includes%2CString.prototype.endsWith%2CString.prototype.startsWith%2CObject.assign%2CNodeList.prototype.forEach"></script>
+    <script defer src="../assets/js/manifest.js%3Fv=404816d3b4"></script>
+    <script defer src="../assets/js/vendor/content-api.min.js%3Fv=404816d3b4"></script>
+    <script defer src="../assets/js/vendor.js%3Fv=404816d3b4"></script>
+    <script defer src="../assets/js/app.js%3Fv=404816d3b4"></script>
+
+      <script defer src="../assets/js/post.js%3Fv=404816d3b4"></script>
+
+
+    
+  </body>
 </html>

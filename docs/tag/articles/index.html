@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -9,8 +8,73 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="../../assets/main/css/main.css%3Fv=8d1182e356.css" />
-    <noscript><link rel="stylesheet" href="../../assets/main/css/noscript.css%3Fv=8d1182e356.css" /></noscript>
+    <link rel="preload" href="../../assets/css/app.css%3Fv=404816d3b4.css" as="style" />
+    <link rel="preload" href="../../assets/js/manifest.js%3Fv=404816d3b4" as="script" />
+    <link rel="preload" href="../../assets/js/vendor/content-api.min.js%3Fv=404816d3b4" as="script" />
+    <link rel="preload" href="../../assets/js/vendor.js%3Fv=404816d3b4" as="script" />
+    <link rel="preload" href="../../assets/js/app.js%3Fv=404816d3b4" as="script" />
+    <link rel="preconnect" href="https://polyfill.io">
+    <link rel="dns-prefetch" href="https://polyfill.io">
+
+      <link rel="preload" href="../../assets/css/listing.css%3Fv=404816d3b4.css" as="style" />
+
+
+    <style>
+      /* These font-faces are here to make fonts work if the Ghost instance is installed in a subdirectory */
+
+      /* source-sans-pro-regular */
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: local('SourceSansPro-Regular'),
+            url("../../assets/fonts/source-sans-pro/latin/source-sans-pro-regular.woff2%3Fv=404816d3b4") format('woff2'),
+            url("../../assets/fonts/source-sans-pro/latin/source-sans-pro-regular.woff%3Fv=404816d3b4") format('woff');
+      }
+
+      /* source-sans-pro-600 */
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: local('SourceSansPro-SemiBold'),
+            url("../../assets/fonts/source-sans-pro/latin/source-sans-pro-600.woff2%3Fv=404816d3b4") format('woff2'),
+            url("../../assets/fonts/source-sans-pro/latin/source-sans-pro-600.woff%3Fv=404816d3b4") format('woff');
+      }
+
+      /* source-sans-pro-700 */
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: local('SourceSansPro-Bold'),
+            url("../../assets/fonts/source-sans-pro/latin/source-sans-pro-700.woff2%3Fv=404816d3b4") format('woff2'),
+            url("../../assets/fonts/source-sans-pro/latin/source-sans-pro-700.woff%3Fv=404816d3b4") format('woff');
+      }
+
+      /* iconmoon */
+      @font-face {
+        font-family: 'icomoon';
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+        src: url("../../assets/fonts/icomoon/icomoon.eot%3F101fc3%3Fv=404816d3b4");
+        src: url("../../assets/fonts/icomoon/icomoon.eot%3F101fc3") format('embedded-opentype'),
+        url("../../assets/fonts/icomoon/icomoon.ttf%3F101fc3%3Fv=404816d3b4") format('truetype'),
+        url("../../assets/fonts/icomoon/icomoon.woff%3F101fc3%3Fv=404816d3b4") format('woff'),
+        url("../../assets/fonts/icomoon/icomoon.svg%3F101fc3") format('svg');
+      }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="../../assets/css/app.css%3Fv=404816d3b4.css" media="screen" />
+
+      <link rel="stylesheet" type="text/css" href="../../assets/css/listing.css%3Fv=404816d3b4.css" media="screen" />
+
+
+    
 
     <link rel="canonical" href="index.html" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
@@ -39,7 +103,7 @@
         "url": "http://localhost:2368/",
         "logo": {
             "@type": "ImageObject",
-            "url": "http://localhost:2368/content/images/2021/12/Screenshot_2021-12-12_at_13.20.21-removebg-preview-2.png"
+            "url": "http://localhost:2368/content/images/2021/12/image--1-.png"
         }
     },
     "url": "http://localhost:2368/tag/articles/",
@@ -53,154 +117,319 @@
 
     <meta name="generator" content="Ghost 4.25" />
     <link rel="alternate" type="application/rss+xml" title="The Seeker" href="../../rss/index.html" />
-    <script defer src="https://unpkg.com/@tryghost/portal@~1.12.0/umd/portal.min.js" data-ghost="http://localhost:2368/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
-.gh-post-upgrade-cta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-align: center;
-    width: 100%;
-    color: #ffffff;
-    font-size: 16px;
-}
+    
+    <script async src="../../public/cards.min.js%3Fv=404816d3b4"></script><style>:root {--ghost-accent-color: #000000;}</style>
+    <link rel="stylesheet" type="text/css" href="../../public/cards.min.css%3Fv=404816d3b4.css">
 
-.gh-post-upgrade-cta-content {
-    border-radius: 8px;
-    padding: 40px 4vw;
-}
-
-.gh-post-upgrade-cta h2 {
-    color: #ffffff;
-    font-size: 28px;
-    letter-spacing: -0.2px;
-    margin: 0;
-    padding: 0;
-}
-
-.gh-post-upgrade-cta p {
-    margin: 20px 0 0;
-    padding: 0;
-}
-
-.gh-post-upgrade-cta small {
-    font-size: 16px;
-    letter-spacing: -0.2px;
-}
-
-.gh-post-upgrade-cta a {
-    color: #ffffff;
-    cursor: pointer;
-    font-weight: 500;
-    box-shadow: none;
-    text-decoration: underline;
-}
-
-.gh-post-upgrade-cta a:hover {
-    color: #ffffff;
-    opacity: 0.8;
-    box-shadow: none;
-    text-decoration: underline;
-}
-
-.gh-post-upgrade-cta a.gh-btn {
-    display: block;
-    background: #ffffff;
-    text-decoration: none;
-    margin: 28px 0 0;
-    padding: 8px 18px;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.gh-post-upgrade-cta a.gh-btn:hover {
-    opacity: 0.92;
-}</style>
-    <script async src="../../public/cards.min.js%3Fv=8d1182e356"></script><style>:root {--ghost-accent-color: #000000;}</style>
-    <link rel="stylesheet" type="text/css" href="../../public/cards.min.css%3Fv=8d1182e356.css">
-
-    <style>#wrapper>.bg {background-image: url(../../assets/images/overlay.png%3Fv=8d1182e356),linear-gradient(0deg, rgba(0,0,0,0.1), rgba(0,0,0,0.1)),url("../../content/images/2021/12/retrosupply-jLwVAUtLOAQ-unsplash-1.jpg") }</style>
-
-</head>
-<body class="is-preload tag-template tag-articles">
-
-    <div id="wrapper" >
+    <script>
+      // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
+      const ghostHost = "http://localhost:2368"
+      // @license-end
+    </script>
+  </head>
+  <body class="tag-template tag-articles">
+    
 
 
-        <header id="header">
-                <a href="../../index.html" class="logo image"><img src="../../content/images/2021/12/Screenshot_2021-12-12_at_13.20.21-removebg-preview-2.png" alt="The Seeker" /></a>
-        </header>
 
-            <nav id="nav">
-    <ul class="links">
-        <li class="nav-home "><a href="../../index.html">Home</a></li>
-        <li class="nav-research "><a href="../research/index.html">Research</a></li>
-        <li class="nav-projects "><a href="../projects/index.html">Projects</a></li>
-        <li class="nav-articles active"><a href="index.html">Articles</a></li>
-        <li class="nav-author "><a href="../../author/sakuna/index.html">Author</a></li>
-    </ul>
-    <ul class="icons">
-        <li><a href="https://twitter.com/ghost" class="icon fa-twitter" title="Twitter"><span class="label">Twitter</span></a></li>
-        <li><a href="https://www.linkedin.com/in/sakuna-harinda/" class="icon fa-linkedin" title="LinkedIn"><span class="label">LinkedIn</span></a></li>
-        <li><a href="https://feedly.com/i/subscription/feed/http://localhost:2368/rss/" class="icon fa-rss" target="_blank" rel="noopener"><span class="label" title="RSS">RSS</span></a></li>
-    </ul>
-</nav>
+  
+<header class="m-header  js-header">
+  <div class="m-mobile-topbar" data-aos="fade-down">
+    <button class="m-icon-button in-mobile-topbar js-open-menu" aria-label="Open menu">
+      <span class="icon-menu" aria-hidden="true"></span>
+    </button>
+      <a href="../../index.html" class="m-logo in-mobile-topbar">
+        <img src="../../content/images/2021/12/image--1-.png" alt="The Seeker">
+      </a>
+    <button class="m-icon-button in-mobile-topbar js-open-search" aria-label="Open search">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    
+  </div>
 
+  <div class="m-menu js-menu">
+    <button class="m-icon-button outlined as-close-menu js-close-menu" aria-label="Close menu">
+      <span class="icon-close"></span>
+    </button>
+    <div class="m-menu__main" data-aos="fade-down">
+      <div class="l-wrapper">
+        <div class="m-nav js-main-nav">
+          <nav class="m-nav__left js-main-nav-left" role="navigation" aria-label="Main menu">
+            <ul>
+                <li class="only-desktop">
+                  <a href="../../index.html" class="m-logo">
+                    <img src="../../content/images/2021/12/image--1-.png" alt="The Seeker">
+                  </a>
+                </li>
+                
+    <li class="nav-home">
+      <a href="../../index.html">Home</a>
+    </li>
+    <li class="nav-research">
+      <a href="../research/index.html">Research</a>
+    </li>
+    <li class="nav-projects">
+      <a href="../projects/index.html">Projects</a>
+    </li>
+    <li class="nav-articles nav-current">
+      <a href="index.html">Articles</a>
+    </li>
+    <li class="nav-author">
+      <a href="../../author/sakuna/index.html">Author</a>
+    </li>
+    <li class="nav-cv">
+      <a href="../../blank/index.html">CV</a>
+    </li>
 
-        
-<main id="main">
-
-    <header class="tag-header">
-        <h1><a href="index.html">Articles</a></h1>
-            <p>A collection of 1 post</p>
-    </header>
-
-    <section class="posts">
-
-        <article>
-            <header>
-                <span class="date">Dec 4, 2021</span>
-                <h2><a href="../../google-cloud-platform-101/index.html">Google Cloud Platform 101</a></h2>
-            </header>
-            <a href="../../google-cloud-platform-101/index.html" class="image fit"><img src="../../content/images/2021/12/1-VPTDOCbtNRQSOwWmw_zERw.png" alt="Google Cloud Platform 101" /></a>
-            <p>Core Infrastructure — Introduction Google cloud platform (GCP) is a platform offered by Google with main 4 services run on the infrastructure that Google uses for some well known applications such as Youtube and</p>
-            <ul class="actions special">
-                <li><a href="../../google-cloud-platform-101/index.html" class="button">Full Story</a></li>
+              <li class="submenu-option js-submenu-option">
+                <button class="m-icon-button in-menu-main more js-toggle-submenu" aria-label="Open submenu">
+                  <span class="icon-more" aria-hidden="true"></span>
+                </button>
+                <div class="m-submenu js-submenu">
+                  <div class="l-wrapper in-submenu">
+                    <section class="m-recent-articles">
+                      <h3 class="m-submenu-title in-recent-articles">Recent articles</h3>
+                          <div class="glide js-recent-slider">
+                            <div class="glide__track" data-glide-el="track">
+                              <div class="glide__slides">
+                                <div class="glide__slide">
+                                  <a href="../../object-detection-tracking-and-suspicious-activity-recognition-formaritime-surveillance-using-thermal-vision/index.html" class="m-recent-article">
+                                    <div class="m-recent-article__picture ">
+                                        <img src="../../content/images/size/w300/2021/12/PTI02_10_2021_000230B_1613623895951_1613623935527_1638100241965.jpg" loading="lazy" alt="">
+                                    </div>
+                                    <h3 class="m-recent-article__title js-recent-article-title" title="Object Detection, Tracking and Suspicious Activity Recognition for
+Maritime Surveillance using Thermal Vision">
+                                      Object Detection, Tracking and Suspicious Activity Recognition for
+Maritime Surveillance using Thermal Vision
+                                    </h3>
+                                    <span class="m-recent-article__date">8 hours ago</span>
+                                  </a>
+                                </div>
+                                <div class="glide__slide">
+                                  <a href="../../fpga-based-processor-implementation/index.html" class="m-recent-article">
+                                    <div class="m-recent-article__picture ">
+                                        <img src="../../content/images/size/w300/2021/12/photo-1597862624292-45748390b00e.jpg" loading="lazy" alt="">
+                                    </div>
+                                    <h3 class="m-recent-article__title js-recent-article-title" title="FPGA Based Processor Implementation">
+                                      FPGA Based Processor Implementation
+                                    </h3>
+                                    <span class="m-recent-article__date">21 hours ago</span>
+                                  </a>
+                                </div>
+                                <div class="glide__slide">
+                                  <a href="../../korsal/index.html" class="m-recent-article">
+                                    <div class="m-recent-article__picture ">
+                                        <img src="../../content/images/size/w300/2021/12/android-user-activity-recognition-still-walking-running-driving.jpg" loading="lazy" alt="">
+                                    </div>
+                                    <h3 class="m-recent-article__title js-recent-article-title" title="KORSAL: Key-point Detection based Online Real-Time Spatio-Temporal Action Localization">
+                                      KORSAL: Key-point Detection based Online Real-Time Spatio-Temporal Action Localization
+                                    </h3>
+                                    <span class="m-recent-article__date">a day ago</span>
+                                  </a>
+                                </div>
+                                <div class="glide__slide">
+                                  <a href="../../google-cloud-platform-101/index.html" class="m-recent-article">
+                                    <div class="m-recent-article__picture ">
+                                        <img src="../../content/images/size/w300/2021/12/1-VPTDOCbtNRQSOwWmw_zERw.png" loading="lazy" alt="">
+                                    </div>
+                                    <h3 class="m-recent-article__title js-recent-article-title" title="Google Cloud Platform 101">
+                                      Google Cloud Platform 101
+                                    </h3>
+                                    <span class="m-recent-article__date">8 days ago</span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </section>
+                    <section class="m-tags">
+                      <h3 class="m-submenu-title">Tags</h3>
+                        <ul>
+                            <li>
+                              <a href="index.html">Articles</a>
+                            </li>
+                            <li>
+                              <a href="../projects/index.html">Projects</a>
+                            </li>
+                            <li>
+                              <a href="../research/index.html">Research</a>
+                            </li>
+                        </ul>
+                    </section>
+                  </div>
+                </div>
+              </li>
             </ul>
-        </article>
+          </nav>
+          <div class="m-nav__right">
+            <button class="m-icon-button in-menu-main js-open-search" aria-label="Open search">
+              <span class="icon-search" aria-hidden="true"></span>
+            </button>
+            <div class="m-toggle-darkmode js-tooltip" data-tippy-content="Toggle dark mode" tabindex="0">
+              <label for="toggle-darkmode" class="sr-only">
+                Toggle dark mode
+              </label>
+              <input id="toggle-darkmode" type="checkbox" class="js-toggle-darkmode">
+              <div>
+                <span class="icon-moon moon" aria-hidden="true"></span>
+                <span class="icon-sunny sun" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+</header>
+
+<main class="main-wrap">
+    
+  <section class="m-hero no-picture " data-aos="fade">
+    <div class="m-hero__content" data-aos="fade-down">
+      <h1 class="m-hero-title bigger">Articles</h1>
+      <div class="m-hero__meta">
+        <ul class="m-hero-stats">
+          <li>
+            1 post with this tag
+          </li>
+        </ul>
+      </div>
+    </div>
     </section>
+  
+  <div class="l-content">
+    <div class="l-wrapper" data-aos="fade-up" data-aos-delay="300">
+      <div class="l-grid centered">
+        
+  <article class="m-article-card  post tag-articles featured">
+    <div class="m-article-card__picture">
+      <a href="../../google-cloud-platform-101/index.html" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+        <img class="m-article-card__picture-background" src="../../content/images/size/w600/2021/12/1-VPTDOCbtNRQSOwWmw_zERw.png" loading="lazy" alt="">
+      <a href="../../author/sakuna/index.html" class="m-article-card__author js-tooltip" aria-label="Sakuna Jayasundara" data-tippy-content="Posted by Sakuna Jayasundara ">
+          <div style="background-image: url(../../content/images/size/w100/2021/12/IMG_20200411_014007_641.jpg);"></div>
+      </a>
+        <a href="../../google-cloud-platform-101/index.html" class="m-article-card__featured js-tooltip" data-tippy-content="Featured" aria-label="Featured">
+          <span class="icon-star" aria-hidden="true"></span>
+        </a>
+    </div>
+      <div class="m-article-card__info">
+        <a href="index.html" class="m-article-card__tag">Articles</a>
+      <a href="../../google-cloud-platform-101/index.html" class="m-article-card__info-link" aria-label="Google Cloud Platform 101">
+        <div>
+          <h2 class="m-article-card__title js-article-card-title " title="Google Cloud Platform 101">
+            Google Cloud Platform 101
+          </h2>
+        </div>
+        <div class="m-article-card__timestamp">
+          <span>8 days ago</span>
+          <span>&bull;</span>
+          <span>4 min read</span>
+        </div>
+      </a>
+    </div>
+  </article>
+      </div>
+    </div>
+    
+<div class="l-wrapper">
+  <nav class="m-pagination" aria-label="Pagination">
+    <span class="m-pagination__text">Page 1 of 1</span>
+  </nav>
+</div>
 
-    <footer>
-    <nav class="pagination" role="navigation">
-        <div class="spacer"></div>
-        <span class="page">Page 1 of 1</span>
-        <div class="spacer"></div>
+  </div>
+</main>
+
+
+    
+<div class="m-search js-search" role="dialog" aria-modal="true" aria-label="Search">
+  <button class="m-icon-button outlined as-close-search js-close-search" aria-label="Close search">
+    <span class="icon-close" aria-hidden="true"></span>
+  </button>
+  <div class="m-search__content">
+    <form class="m-search__form">
+      <div class="pos-relative">
+        <span class="icon-search m-search-icon" aria-hidden="true"></span>
+        <label for="search-input" class="sr-only">
+          Type to search
+        </label>
+        <input id="search-input" type="text" class="m-input in-search js-input-search" placeholder="Type to search">
+      </div>
+    </form>
+    <div class="js-search-results hide"></div>
+    <p class="m-not-found align-center hide js-no-results">
+      No results for your search, please try with something else.
+    </p>
+  </div>
+</div>
+
+    
+<footer class="m-footer">
+  <div class="m-footer__content">
+    <nav class="m-footer-social">
+        <a href="https://twitter.com/ghost" target="_blank" rel="noopener" aria-label="Twitter">
+          <span class="icon-twitter" aria-hidden="true"></span>
+        </a>
+      <a href="https://github.com/sakunaharinda" aria-label="Github">
+        <span class="icon-github" aria-hidden="true"></span>
+      </a>
+      <a href="https://scholar.google.com/citations?user=_2tM_-UAAAAJ&hl=en" aria-label="Google Scholar">
+        <span class="icon-globe" aria-hidden="true"></span>
+      </a>
+      <a href="https://www.linkedin.com/in/sakuna-harinda/" aria-label="LinkedIn">
+        <span class="icon-linkedin" aria-hidden="true"></span>
+      </a>
+      <a href="http://localhost:2368/rss" aria-label="RSS">
+        <span class="icon-rss" aria-hidden="true"></span>
+      </a>
     </nav>
+    <p class="m-footer-copyright">
+      <span>The Seeker &copy; 2021</span>
+      <span>&nbsp; &bull; &nbsp;</span>
+      <span>Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a></span>
+    </p>
+    <p class="m-footer-copyright jslicense">
+      <a href="../../assets/html/javascript.html%3Fv=404816d3b4.html" rel="jslicense">JavaScript license information</a>
+    </p>
+  </div>
 </footer>
 
-    </main>
-
-        <div id="copyright">
-    <ul>
-        <li>&copy; The Seeker</li>
-        <li>Design by <a href="https://html5up.net">HTML5 UP</a></li>
-        <li>Published with <a href="https://ghost.org">Ghost</a></li>
-    </ul>
+    <div class="m-alert success subscribe js-alert" data-notification="subscribe">
+  Great! You&#x27;ve successfully subscribed.
+  <button class="m-alert__close js-notification-close" aria-label="Close">
+    <span class="icon-close"></span>
+  </button>
 </div>
-    </div>
 
+<div class="m-alert success signup js-alert" data-notification="signup">
+  Great! Next, complete checkout for full access.
+  <button class="m-alert__close js-notification-close" aria-label="Close">
+    <span class="icon-close"></span>
+  </button>
+</div>
 
-    <script src="../../assets/main/js/jquery.min.js%3Fv=8d1182e356"></script>
-    <script src="../../assets/main/js/jquery.scrollex.min.js%3Fv=8d1182e356"></script>
-    <script src="../../assets/main/js/jquery.scrolly.min.js%3Fv=8d1182e356"></script>
-    <script src="../../assets/main/js/browser.min.js%3Fv=8d1182e356"></script>
-    <script src="../../assets/main/js/breakpoints.min.js%3Fv=8d1182e356"></script>
-    <script src="../../assets/main/js/util.js%3Fv=8d1182e356"></script>
-    <script src="../../assets/main/js/main.js%3Fv=8d1182e356"></script>
+<div class="m-alert success signin js-alert" data-notification="signin">
+  Welcome back! You&#x27;ve successfully signed in.
+  <button class="m-alert__close js-notification-close" aria-label="Close">
+    <span class="icon-close"></span>
+  </button>
+</div>
+
+<div class="m-alert success checkout js-alert" data-notification="checkout">
+  Success! Your account is fully activated, you now have access to all content.
+  <button class="m-alert__close js-notification-close" aria-label="Close">
+    <span class="icon-close"></span>
+  </button>
+</div>
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver%2CPromise%2CArray.prototype.includes%2CString.prototype.endsWith%2CString.prototype.startsWith%2CObject.assign%2CNodeList.prototype.forEach"></script>
+    <script defer src="../../assets/js/manifest.js%3Fv=404816d3b4"></script>
+    <script defer src="../../assets/js/vendor/content-api.min.js%3Fv=404816d3b4"></script>
+    <script defer src="../../assets/js/vendor.js%3Fv=404816d3b4"></script>
+    <script defer src="../../assets/js/app.js%3Fv=404816d3b4"></script>
 
     
 
-</body>
+    
+  </body>
 </html>
